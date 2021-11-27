@@ -1,0 +1,60 @@
+$color_primary: #2a394f;
+$color_secondary: #2d2a4f;
+$color_last: #2a4b4f;
+
+$color_text: rgb(27, 27, 27);
+$color_text_dark_mode: #fff;
+$color_link: rgb(27, 27, 27);
+$color_link_hover: rgb(17, 17, 110);
+
+$color_heading_bg: #ddd;
+$color_menu_heading_li_bg: rgba(71,135,237,.2);
+$colro_border: #ccc;
+
+$color_button_bg: #ddd;
+$color_button_bg_hover: #ddd;
+$color_button_text: rgb(8, 8, 8);
+$color_button_text_hover: #ccc;
+
+
+// transition
+@mixin transition($time, $type){
+    transition: $time $type;
+    -webkit-transition: $time $type;
+    -moz-transition: $time $type;
+    -ms-transition: $time $type;
+    -o-transition: $time $type;
+}
+
+// button simple
+%button_simple{
+    background-color: $color_button_bg;
+    color:$color_button_text;
+    @include transition(0.3s, ease);
+    border: none;
+    border-radius: 0.1875rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $color_button_bg_hover;
+    }
+}
+
+// Center Absolute
+@mixin cross_browser_transform_translate($top, $left){
+    transform: translate($top, $left);
+    -webkit-transform: translate($top, $left);
+    -moz-transform: translate($top, $left);
+    -ms-transform: translate($top, $left);
+    -o-transform: translate($top, $left);
+}
+// extended mixin to center absolute
+%center_absolute{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include cross_browser_transform_translate(-50%, -50%);
+}

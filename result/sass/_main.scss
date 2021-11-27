@@ -1,0 +1,206 @@
+// @font-face {
+// 	font-family: 'SutonnyMJ';
+// 	src: url('./../fonts/SutonnyMJ_Bold_Italic.ttf');
+// 	src: url('./../fonts/SutonnyMJ_Italic.ttf');
+// 	src: url('./../fonts/SutonnyMJ_Bold.ttf');
+// 	src: url('./../fonts/SutonnyMJ_Regular.ttf');
+// }
+
+@font-face {
+	font-family: 'AdorNiorritV2Light';
+	src: url('./../fonts/adorniorritlight/AdorNiorritV2_Light.eot');
+	src: local('☺'), url('./../fonts/adorniorritlight/AdorNiorritV2_Light.woff') format('woff'), url('./../fonts/adorniorritlight/AdorNiorritV2_Light.ttf') format('truetype'), url('./../fonts/adorniorritlight/AdorNiorritV2_Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+// Ansi font
+.ansi_font{
+	font-family: 'AdorNiorritV2Light', sans-serif;
+}
+
+// Notice
+.help{
+	display: flex;
+	flex-direction: column;
+	align-items: center;	
+	padding-top: 3.5rem;
+    padding-bottom: 2rem;
+
+	h2{
+		color: $color_last;
+		width: fit-content;
+		text-align: center;
+	}
+
+    button#download{
+        @extend %button_simple;
+        cursor: pointer;
+		width: fit-content;
+    }
+}
+
+
+/* Main A4 Size */
+#root{
+	// width: 792px;
+	width: 100%;
+	// height: 1120px;
+	font-size: 16px;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+
+	// Header
+	header{
+		text-align: center;
+		padding-top: 1.5rem;
+
+		h1{
+			padding-top: .5rem;
+			font-size: 1.5rem;
+		}
+
+		h3{
+			padding-top: .5rem;
+			font-weight: normal;
+		}
+	}
+
+	// Information
+	.info{
+		padding: 1rem 2rem;
+
+		p.student_info{
+			span:nth-child(2){
+				margin-right: 5rem;
+			}
+		}
+
+		p.result_info{
+			padding-top: .625rem;
+
+			span:nth-child(2),span:nth-child(4){
+				margin-right: 2.5rem;
+			}
+		}
+	}
+
+	// result
+	.results{
+		table.result_table{
+			width: 80%;
+    		margin: 1rem auto;
+			border-collapse: collapse;
+
+			
+			// head
+			thead{
+				background-color: $color_heading_bg;
+				
+				tr{
+					th{
+						text-align: center;
+						font-weight: bold;
+					}
+				}
+			}
+
+			// body
+			tbody{
+				tr{
+					td{
+						padding: .313rem .625rem;
+						font-family: "AdorNiorritV2Light",sans-serif;
+					}
+				}
+			}
+
+			// foot
+			tfoot{
+				background-color: $color_heading_bg;
+				
+				tr{
+					td{
+						font-weight: bold;
+						padding: .313rem .625rem;
+					}
+				}
+			}
+
+			// all
+			thead,tbody,tfoot{
+				tr{
+					th,td{
+						border: .063rem solid $colro_border;
+					}
+	
+					td:last-child{
+						text-align: center;
+					}
+				}
+			}
+		}
+
+		table.madrasha{
+			thead{
+				th{
+					td{
+						// text-align: center;
+						// padding-left: .125rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+// bottom help
+.bottom_help{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	button,.button{
+		padding: .2rem 1rem;
+		margin-left: .5rem;
+		margin-bottom: .5rem;
+	}
+
+	a{
+		text-decoration: none;
+	}
+}
+
+
+// Responsive
+@media sreen and (max-width:767px){
+	#root{
+		padding-left: 1rem;	
+		padding-bottom: 1rem;	
+	}
+}
+
+
+// Print css
+@media print {
+	body * {
+	  visibility: hidden;
+	}
+	.bottom_help{
+		visibility: hidden;
+		display: none;
+	}
+	#root, #root * {
+	  visibility: visible;
+	}/*hide all element from print*/
+	#root {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  border: none;
+	} /*show only printable id for fint*/
+}
