@@ -155,7 +155,6 @@ if($avarage < 35){
             দেখুন</a></div>
     <div id="route3"></div>
     <script src="./js/htmlToPdf.js"></script>
-    <script src="<?php echo 'https://asifulmamun.info/data/access/route_alhaiatululya.com.js'; ?>"></script>
     <script type="text/javascript">
     function pdf() {
         var t = document.getElementById("root");
