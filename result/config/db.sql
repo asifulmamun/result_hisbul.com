@@ -1,22 +1,13 @@
--- Create Table
-CREATE TABLE IF NOT EXISTS `alhasmtq_results1442`.`takmil_1442` (
-    `madrasah_code` varchar(50),
-    `roll` varchar(50),
-    `bukhari_101` varchar(250),
-    `bukhari_102` varchar(250),
-    `muslim_103` varchar(250),
-    `muslim_104` varchar(250),
-    `tirmizi_105` varchar(250),
-    `tirmizi_106` varchar(250),
-    `abu_daud_107` varchar(250),
-    `nasai_108` varchar(250),
-    `tohavi_109` varchar(250),
-    `muatta_110` varchar(250),
-    `kiriyat_111` varchar(250),
-    `total` varchar(250),
-    `division` varchar(250),
-    `name` longtext
-) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE TABLE `hisbulm_results`.`results_2021` ( 
+    `id` INT(100) NOT NULL AUTO_INCREMENT , 
+    `roll` VARCHAR(250) NOT NULL ,
+    `name` VARCHAR(250) NOT NULL , 
+    `month` INT(12) NOT NULL , 
+    `training_id` INT(10) NOT NULL , 
+    `101` INT NULL DEFAULT NULL , `102` INT NULL DEFAULT NULL , `103` INT NULL DEFAULT NULL , `104` INT NULL DEFAULT NULL , `105` INT NULL DEFAULT NULL , `106` INT NULL DEFAULT NULL , `107` INT NULL DEFAULT NULL , 
+    PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
 
 -- check duplicate
 /* SELECT

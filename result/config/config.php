@@ -2,9 +2,11 @@
 
 // Get Result
 function result_data($col_name){
-  global $conn, $roll;
+  global $conn, $roll, $year, $month, $training_id;
 
-  $sql = "SELECT * FROM takmil_1442 WHERE `roll` = $roll";
+  $result_id = 'results_'.$year;
+
+  $sql = "SELECT * FROM $result_id WHERE `roll` = $roll AND `month` = $month AND `training_id` = $training_id";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -33,7 +35,7 @@ function division($division){
 }
 
 // variable
-$site_title = 'আল-হাইআতুল উলয়া লিল-জামি‘আতিল কওমিয়া বাংলাদেশ';
-$result_titile = 'দাওরায়ে হাদীস (তাকমীল) পরীক্ষার ফলাফল';
-$result_year = '১৪৪২ হিজরী/১৪২৭ বঙ্গাব্দ/২০২১ ঈসাব্দ';
+$site_title = "হিসবুল মু'আল্লিমীন বাংলাদেশ";
+$result_titile = 'পরীক্ষার ফলাফল';
+$result_year = '২০২১ ঈসাব্দ';
 $template_titile = $result_titile.$result_year;
