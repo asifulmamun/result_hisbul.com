@@ -76,6 +76,12 @@ if($avarage < 35){
 
 <head>
     <meta charset="UTF-8">
+
+    <?php
+        // Charset
+        header('Content-Type: text/html; charset=utf-8');
+    ?>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,9 +102,12 @@ if($avarage < 35){
             <h3><?php echo $result_titile . ' - ' . $year . ' (' . $training_name . ')'; ?></h3>
         </header>
         <div class="info">
-            <p class="student_info"><span>রোলঃ</span><span id="roll"
-                    class="ansi_font roll">&nbsp;<?php echo result_data('roll'); ?></span><span>নামঃ</span><span
-                    class="ansi_font">&nbsp;<?php echo result_data('name'); ?></span></p>
+            <p class="student_info">
+                <span>নামঃ</span><span
+                    class="ansi_font">&nbsp;<?php echo result_data('name'); ?></span>
+                <span>রোলঃ</span><span id="roll"
+                    class="ansi_font roll">&nbsp;<?php echo result_data('roll'); ?></span>
+                </p>
             <p class="result_info">
                 <span>বিভাগঃ</span><span>&nbsp;<?php echo $division; ?></span>
                 <span>সর্বমোটঃ</span><span class="ansi_font">&nbsp;<?php echo $total; ?></span></p>

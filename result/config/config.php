@@ -6,11 +6,11 @@ function result_data($col_name){
 
   $result_id = 'results_'.$year;
 
-  // charset
-  mysqli_set_charset($conn, 'utf-8');
-
   $sql = "SELECT * FROM $result_id WHERE `roll` = $roll AND `month` = $month AND `training_id` = $training_id";
+
+
   $result = $conn->query($sql);
+
   
 
   if ($result->num_rows > 0) {
