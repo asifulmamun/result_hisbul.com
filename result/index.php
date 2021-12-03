@@ -170,7 +170,7 @@ if($avarage < 35){
         var t = document.getElementById("root");
         html2pdf().from(t).set({
             margin: 0,
-            filename: "Result_hisbul-<?php echo $roll; ?>_<?php echo $year; ?>_<?php echo $month; ?>-by_asifulmamun.info.pdf",
+            filename: "Result_hisbul.com-<?php echo $roll; ?>_<?php echo $year; ?>_<?php echo $month; ?>-by_www.asifulmamun.info.pdf",
             html2canvas: {
                 scale: 2
             },
