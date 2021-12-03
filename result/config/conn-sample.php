@@ -7,6 +7,10 @@ $dbname = "takmil2021";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+
+// Set charset for unicode problem solve
+$conn -> set_charset("utf8");
+
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
