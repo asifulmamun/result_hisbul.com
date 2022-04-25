@@ -7,9 +7,9 @@ const {watch} = require('gulp');
 
 // Directory/Folder
 const src_dir_sass = './src/sass/**/*.scss';
-const dest_dir_sass = './assets/css';
+const dest_dir_sass = './dist/css';
 const src_dir_js = './src/js/**/*.js';
-const dest_dir_js = './assets/js';
+const dest_dir_js = './dist/js';
 
 
 
