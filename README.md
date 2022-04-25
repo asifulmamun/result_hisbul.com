@@ -27,7 +27,7 @@ I am just create for my pracice and it make for my class assignment for my Unive
     .............
   </div>
     
-  @Any one can use this template it's open source.
+  Any one can use this template it's open source.
   I've found this
   ------------------
     * @overview es6-promise - a tiny implementation of Promises/A+.
@@ -36,7 +36,7 @@ I am just create for my pracice and it make for my class assignment for my Unive
     * See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
     * @version   v4.2.5+7f2b526d
 
-  @this is file for create pdf
+  this is file for create pdf
   PDF Deatailse below noe
     -----------------------
     Name                : Sample of (Northern College Bangladesh, SPL Practical Coverpage)
