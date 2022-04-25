@@ -1,10 +1,18 @@
-#Why I'm use this
+### Files
+
+#### Exam JSON generate file
+  ./result/config/exam_json_generate.php  - Generation Json file (exam.json) for loading exam name in form
+    There is static json file for fast loading if need or update any exam you need to create new (exam.json) file. This json file auto generat when execute/visit/run this phpfile (./result/config/exam_json_generate.php).
+    This (exam.json) file will not include any git tracking.
+
+
+### Why I'm use this
 I've found it from github, it's copyright and licens info is written below.
 I am just create for my pracice and it make for my class assignment for my University, Norhtern College, Bangladesh.
 
 
 
-# createPdf
+### createPdf
 #it's found from internet
 /*
 * If you want to edit this just your content

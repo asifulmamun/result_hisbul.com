@@ -19,9 +19,3 @@ function result_data($col_name){
     return 'N/A';
   }
 }
-
-// variable
-$site_title = "হিসবুল মু'আল্লিমীন বাংলাদেশ";
-$result_titile = 'পরীক্ষার ফলাফল';
-$result_year = '২০২১ ঈসাব্দ';
-$template_titile = $result_titile.$result_year;

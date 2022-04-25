@@ -5,24 +5,33 @@
 
     require_once './conn.php'; // DB Connection
 
-    $sql = 'SELECT `id`, `exam_code`, `exam_name`, `year`, `class_id` FROM `exam`';
 
-    $result = $conn->query($sql);
+    // Get Databse Information and Get Exam Data
+    class GetExam extends Database{
 
-    if ($result->num_rows > 0) {
+        public function exam(){
 
-        $exam_arr = array();
-        $exam_arr['data'] = array();
+            $sql = 'SELECT `id`, `exam_code`, `exam_name`, `year`, `class_id` FROM `exam`';
 
-        while($row = $result->fetch_assoc()) {
+            $result = $this->connect()->query($sql);
 
-            array_push($exam_arr['data'], $row);
+            if($result->num_rows > 0){
+                while($rows = $result->fetch_assoc()){
+                    
+                    $data[] = $rows;
+                }
+
+                return $data;
+            }
+
         }
-
-        $fp = fopen('exam.json', 'w');
-        fwrite($fp, json_encode($exam_arr['data']));
-        fclose($fp);
-        
-    } else {
-        return 'N/A';
     }
+
+
+    $exam_arr = new GetExam();
+    // print_r($exam_arr->exam());
+
+    // Generate Json file from Exam Data
+    $fp = fopen('exam.json', 'w');
+    fwrite($fp, json_encode($exam_arr->exam()));
+    fclose($fp);

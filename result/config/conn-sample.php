@@ -1,18 +1,34 @@
 <?php
-$servername = "localhost";
-$username = "asifulmamun";
-$password = "1998";
-$dbname = "takmil2021";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+class Database{
+
+  private $servername;
+  private $username;
+  private $password;
+  private $dbname;
+
+  protected function connect(){
+
+    $this->servername = "localhost";
+    $this->username = "asifulmamun";
+    $this->password = "1998";
+    $this->dbname = "febrms";
 
 
-// Set charset for unicode problem solve
-$conn -> set_charset("utf8");
+    $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    // Set charset for unicode problem solve
+    $conn->set_charset("utf8");
+
+    // Check connection error
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    return $conn;
+    // echo "Connected successfully";
+    
+  }
+
 }
-// echo "Connected successfully";
