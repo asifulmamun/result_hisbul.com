@@ -1,15 +1,90 @@
-CREATE TABLE `hisbulm_results`.`results_2021` ( 
-    `id` INT(100) NOT NULL AUTO_INCREMENT , 
-    `roll` VARCHAR(250) NOT NULL ,
-    `name` VARCHAR(250) NOT NULL , 
-    `month` INT(12) NOT NULL , 
-    `training_id` INT(10) NOT NULL , 
-    `101` INT NULL DEFAULT NULL , `102` INT NULL DEFAULT NULL , `103` INT NULL DEFAULT NULL , `104` INT NULL DEFAULT NULL , `105` INT NULL DEFAULT NULL , `106` INT NULL DEFAULT NULL , `107` INT NULL DEFAULT NULL , 
-    PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `results_2022` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`exam_code` int NOT NULL,
+	`roll` varchar(250) NOT NULL,
+	`name` varchar(250) NOT NULL,
+	`101` int,
+	`102` int,
+	`103` int,
+	`104` int,
+	`105` int,
+	`106` int,
+	`107` int,
+	`108` int,
+	`109` int,
+	`110` int,
+	`111` int,
+	`112` int,
+	`113` int,
+	`114` int,
+	`115` int,
+	`116` int,
+	`117` int,
+	`118` int,
+	`119` int,
+	`120` int,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `subject` (
+	`sl` int NOT NULL AUTO_INCREMENT,
+	`class_id` int NOT NULL,
+	`subject_id` int NOT NULL,
+	`subject_name` varchar(255) NOT NULL,
+	`total_marks` int(10),
+	`pass_marks` int(10),
+	PRIMARY KEY (`sl`)
+);
+
+CREATE TABLE `exam` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`class_id` int NOT NULL,
+	`exam_code` int NOT NULL UNIQUE,
+	`exam_name` varchar(255),
+	`year` int(4),
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `class` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`class_name` varchar(255),
+	`branch_name` varchar(255),
+	`total_subject` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `results_2022` ADD CONSTRAINT `results_2022_fk0` FOREIGN KEY (`exam_code`) REFERENCES `exam`(`exam_code`);
+
+ALTER TABLE `subject` ADD CONSTRAINT `subject_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
+
+ALTER TABLE `exam` ADD CONSTRAINT `exam_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- Drop ID
-ALTER TABLE `results_2021`
-  DROP `id`;
+-- ALTER TABLE `results_2021`
+--   DROP `id`;
 
 
 -- check duplicate

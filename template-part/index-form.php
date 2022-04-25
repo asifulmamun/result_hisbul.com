@@ -27,7 +27,7 @@
             <option value="2">নূরানী মু'আল্লিম প্রশিক্ষণ</option>
             <option value="3">বাংলা নূরানী প্রশিক্ষণ</option>
             <option value="4">ক্বারিয়ানা</option>
-            <option value="5">মু'আল্লিমা </option>
+            <option value="5">মু'আল্লিমা</option>
         </select>
 
         <input type="text" name="roll" placeholder="রোল নং ইংরেজিতে ...">
