@@ -2,16 +2,19 @@
 
 class Database{
 
+  // Object
   private $servername;
   private $username;
   private $password;
   private $dbname;
 
+
+
   protected function connect(){
 
     $this->servername = "localhost";
     $this->username = "asifulmamun";
-    $this->password = "1998";
+    $this->password = "";
     $this->dbname = "febrms";
 
 

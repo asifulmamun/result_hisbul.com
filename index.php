@@ -32,20 +32,20 @@
                     </header>
                     <nav>
                         <ul>
-                            <li class="side_menu_li side_menu_li_1"><a class="side_menu_li_a_1" href="./">ফলাফল</a></li>
+                            <li class="side_menu_li side_menu_li_1"><a class="side_menu_li_a_1" href="./">Result</a></li>
                         </ul>
                     </nav>
                 </aside>
             </div>
             <div class="content">
                 <main>
-                    <?php require_once './template-part/index-form.php'; ?>
+                    <?php require_once './templates/index-form.php'; ?>
                 </main>
             </div>
         </div>
         <div id="route2"></div>
     </section>
-    <script src="<?php echo $site_info->dir_js; ?>route.js"></script>
+    <script src="<?php echo $site_info->dir_js; ?>app.js"></script>
     <div id="route"></div>
     <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small>
 </body>
