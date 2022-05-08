@@ -3,8 +3,11 @@ node_modules
 package-lock.json
 
 # This file generate from ./result/config/exam_json_generate.php which data collected from DB exam table, generated static file for fast load exam
-uploads/data/*
-uploads/images/*
+uploads/data/*.json
+uploads/images/*.jpg
+uploads/images/*.png
+uploads/images/*.gif
+uploads/images/*.jpeg
 
 
 .map
