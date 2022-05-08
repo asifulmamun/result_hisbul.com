@@ -1,4 +1,4 @@
-result/config/conn.php
+view/config/conn.php
 node_modules
 package-lock.json
 
