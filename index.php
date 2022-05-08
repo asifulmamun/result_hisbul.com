@@ -2,7 +2,6 @@
 
     // Home Page
     require_once './init.php';
-    require_once './result/config/conn.php';
 
 
     // Call Site Information from init.php
@@ -17,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?php echo $site_info->favicon_icon; ?>" type="image/x-icon">
-    <title><?php echo $site_info->template_name; ?></title>
+    <title><?php echo $site_info->title_tag; ?></title>
     <link rel="stylesheet" href="<?php echo $site_info->dir_css; ?>style.css">
 </head>
 
