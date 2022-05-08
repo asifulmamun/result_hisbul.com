@@ -52,7 +52,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
         // Empty/Clear the form of exam selector (exam_name)
         var select_exam_name = document.getElementById('exam_name'); // get the select
 
-        select_exam_name.innerHTML = "hi"; // Set Exam Name
+        select_exam_name.innerHTML = ""; // Set Exam Name
 
         for (var _i2 = 0; _i2 < Object.keys(exams).length; _i2++) {
           var exam_code = exams[_i2]['exam_code'];

@@ -76,7 +76,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
 
                 // Empty/Clear the form of exam selector (exam_name)
                 let select_exam_name = document.getElementById('exam_name'); // get the select
-                select_exam_name.innerHTML = "hi";
+                select_exam_name.innerHTML = "";
 
 
                 // Set Exam Name
