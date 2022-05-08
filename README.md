@@ -1,8 +1,18 @@
 ### Files
 
+#### Permission
+  You have permission for edit below files & folders which will not track by git:
+  - init.php (copy from init-sample.php - do not delete sample file)
+  - conn.php (copy from conn-sample.php - do not delete sample file)
+  
+    
+    >Before you need to give permission a+rwx to uploads folder
+  - uploads/data (here you can put any json file it will be not track by git)
+  - uploads/images (here you can upload or put any images files, it will be not track by git)
+
 #### Exam JSON generate file
-  ./result/config/exam_json_generate.php  - Generation Json file (exam.json) for loading exam name in form
-    There is static json file for fast loading if need or update any exam you need to create new (exam.json) file. This json file auto generat when execute/visit/run this phpfile (./result/config/exam_json_generate.php).
+  ./result/config/exam_json_generate.php  - Generation Json file (exams.json) for loading exam name in form
+    There is static json file for fast loading if need or update any exam you need to create new (exams.json) file. This json file auto generat when execute/visit/run this phpfile (./result/config/exam_json_generate.php).
     This (exam.json) file will not include any git tracking.
 
 
