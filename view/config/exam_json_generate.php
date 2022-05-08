@@ -32,6 +32,6 @@
     // print_r($exam_arr->exam());
 
     // Generate Json file from Exam Data
-    $fp = fopen('exam.json', 'w');
+    $fp = fopen('./../../uploads/data/exams.json', 'w');
     fwrite($fp, json_encode($exam_arr->exam()));
     fclose($fp);

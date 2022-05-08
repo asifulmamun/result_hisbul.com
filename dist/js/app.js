@@ -27,7 +27,7 @@ var getJSON = function getJSON(url, callback) {
   xhr.send();
 };
 
-getJSON('./result/config/exam.json', function (err, data) {
+getJSON('./uploads/data/exams.json', function (err, data) {
   // If json data found
   if (err != null) {
     console.error(err);
