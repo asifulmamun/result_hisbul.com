@@ -1,72 +1,64 @@
 <?php
 
-/* DB, Conifig
-------------*/
-require_once './config/conn.php'; // DB
-require_once './config/config.php'; // configuration
+    // Received by Get Method & Stored to variable
+    $year = $_GET['years'];
+    $exam_code = $_GET['exam_name'];
+    $roll = $_GET['roll'];
 
-$roll = $_GET['roll'];
-$year = $_GET['year'];
-$month = $_GET['month'];
-$training_id = $_GET['training_id'];
 
-$training_name = NULL;
+    // Required Files
+    require_once './../init.php'; // DB
+    require_once './config/conn.php'; // DB
+    require_once './config/config.php'; // configuration
 
-if ($training_id == 1){
-    $training_name = "হুফফাজ প্রশিক্ষণ";
 
-} elseif($training_id == 2){
-    $training_name = "নূরানী মু'আল্লিম প্রশিক্ষণ";
+    // Call Site Information from init.php
+    $site_info = new Info();
 
-} elseif($training_id == 3){
-    $training_name = "বাংলা নূরানী প্রশিক্ষণ";
 
-} elseif($training_id == 4){
-    $training_name = "ক্বারিয়ানা";
 
-} elseif($training_id == 5){
-    $training_name = "মু'আল্লিমা ";
-
-}else{
-    $training_name = NULL;
-}
+    // Get Result
+    $result = new GetResult();
+    echo '<pre>';
+    print_r($result->view($year, $exam_code, $roll));
+    echo '</pre>';
 
 
 /* For get result ('Column Name;)
 * echo result_data('name');
 ------------------------------------*/
 
-// Calculatoin
-$total = result_data('101');
-$total += result_data('102');
-$total += result_data('103');
-$total += result_data('104');
-$total += result_data('105');
-$total += result_data('106');
-$total += result_data('107');
+// // Calculatoin
+// $total = result_data('101');
+// $total += result_data('102');
+// $total += result_data('103');
+// $total += result_data('104');
+// $total += result_data('105');
+// $total += result_data('106');
+// $total += result_data('107');
 
 // Avarage & division
-$avarage = round($total/7);
+// $avarage = round($total/7);
 
-$division = "রাসিব (ফেল)";
-if($avarage < 35){
-    $division = "রাসিব (ফেল)";
+// $division = "রাসিব (ফেল)";
+// if($avarage < 35){
+//     $division = "রাসিব (ফেল)";
 
-} elseif($avarage < 50){
-    $division = "মাক্ববূল";
+// } elseif($avarage < 50){
+//     $division = "মাক্ববূল";
 
-} elseif($avarage < 65){
-    $division = "জাইয়িদ";
+// } elseif($avarage < 65){
+//     $division = "জাইয়িদ";
 
-} elseif($avarage < 80){
-    $division = "জাইয়িদ জিদ্দান";
+// } elseif($avarage < 80){
+//     $division = "জাইয়িদ জিদ্দান";
 
-} elseif($avarage <= 100){
-    $division = "মুমতায";
+// } elseif($avarage <= 100){
+//     $division = "মুমতায";
 
-} else{
-    $division = "রাসিব (ফেল)";
-} 
+// } else{
+//     $division = "রাসিব (ফেল)";
+// } 
 
 
 
@@ -103,14 +95,13 @@ if($avarage < 35){
         </header>
         <div class="info">
             <p class="student_info">
-                <span>নামঃ</span><span
-                    class="ansi_font">&nbsp;<?php echo result_data('name'); ?></span>
-                <span>রোলঃ</span><span id="roll"
-                    class="ansi_font roll">&nbsp;<?php echo result_data('roll'); ?></span>
-                </p>
+                <span>নামঃ</span><span class="ansi_font">&nbsp;<?php echo result_data('name'); ?></span>
+                <span>রোলঃ</span><span id="roll" class="ansi_font roll">&nbsp;<?php echo result_data('roll'); ?></span>
+            </p>
             <p class="result_info">
                 <span>বিভাগঃ</span><span>&nbsp;<?php echo $division; ?></span>
-                <span>সর্বমোটঃ</span><span class="ansi_font">&nbsp;<?php echo $total; ?></span></p>
+                <span>সর্বমোটঃ</span><span class="ansi_font">&nbsp;<?php echo $total; ?></span>
+            </p>
         </div>
         <div class="results">
             <table class="result_table">

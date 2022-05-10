@@ -1,5 +1,5 @@
 <h2>ফলাফল</h2>
-<form action="result" method="GET">
+<form action="view" method="GET">
     <p class="result_form">
 
         <select id="years" name="years">
