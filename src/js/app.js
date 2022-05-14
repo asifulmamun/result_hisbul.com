@@ -45,7 +45,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
 
 
 
-        // Get selected years after select users
+        // Get selected years after select user
         var option_years = document.getElementById('years');
         option_years.addEventListener('change', change_exam_name_data);
 
@@ -84,7 +84,8 @@ getJSON('./uploads/data/exams.json', function (err, data) {
                     let exam_code = exams[i]['exam_code'];
                     let exam_name = exams[i]['exam_name'];
                     let exam_year = exams[i]['year'];
-                    // console.log(exam_code);
+                    let class_id = exams[i]['class_id'];
+                    // console.log(exams);
                     set_exam_name(exam_code, exam_year + ' - ' + exam_name);
                 }
 
@@ -93,6 +94,34 @@ getJSON('./uploads/data/exams.json', function (err, data) {
                 console.log('No Data Found');
             }
 
+        }
+
+
+
+        // Get selected exam name after select user
+        let option_roll = document.getElementById('roll');
+        let option_exam = document.getElementById('exam_name');
+        option_roll.addEventListener('input', change_class_id);
+        option_exam.addEventListener('input', change_class_id);
+
+        function change_class_id(){
+            let option_exam = document.getElementById('exam_name');
+            let class_id = document.getElementById('class_id');
+
+            // Search Item
+            let searchItem = [{
+                "exam_code": option_exam.value
+            }];
+
+            // Searching
+            let searched = data.filter(
+                f => searchItem.some(
+                    s => f['exam_code'] == s['exam_code']
+                )
+            );
+            
+            console.log(searched[0]['class_id']); // print class id
+            class_id.value = searched[0]['class_id'];
         }
 
 

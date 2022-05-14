@@ -57,7 +57,8 @@ getJSON('./uploads/data/exams.json', function (err, data) {
         for (var _i2 = 0; _i2 < Object.keys(exams).length; _i2++) {
           var exam_code = exams[_i2]['exam_code'];
           var exam_name = exams[_i2]['exam_name'];
-          var exam_year = exams[_i2]['year']; // console.log(exam_code);
+          var exam_year = exams[_i2]['year'];
+          var class_id = exams[_i2]['class_id']; // console.log(exams);
 
           set_exam_name(exam_code, exam_year + ' - ' + exam_name);
         }
@@ -65,6 +66,25 @@ getJSON('./uploads/data/exams.json', function (err, data) {
         // If no data found
         console.log('No Data Found');
       }
+    }; // Get selected exam name after select user
+
+
+    var change_class_id = function change_class_id() {
+      var option_exam = document.getElementById('exam_name');
+      var class_id = document.getElementById('class_id'); // Search Item
+
+      var searchItem = [{
+        "exam_code": option_exam.value
+      }]; // Searching
+
+      var searched = data.filter(function (f) {
+        return searchItem.some(function (s) {
+          return f['exam_code'] == s['exam_code'];
+        });
+      });
+      console.log(searched[0]['class_id']); // print class id
+
+      class_id.value = searched[0]['class_id'];
     }; // Add Option to Form
 
 
@@ -128,11 +148,15 @@ getJSON('./uploads/data/exams.json', function (err, data) {
 
     for (var _i = 0; _i < Object.keys(selected_years).length; _i++) {
       set_option('years', selected_years[_i]);
-    } // Get selected years after select users
+    } // Get selected years after select user
 
 
     var option_years = document.getElementById('years');
     option_years.addEventListener('change', change_exam_name_data);
+    var option_roll = document.getElementById('roll');
+    var option_exam = document.getElementById('exam_name');
+    option_roll.addEventListener('input', change_class_id);
+    option_exam.addEventListener('input', change_class_id);
   } // If json data found
 
 });
