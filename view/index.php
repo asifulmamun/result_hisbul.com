@@ -87,12 +87,12 @@
         header('Content-Type: text/html; charset=utf-8');
     ?>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <title><?php echo $template_titile; ?></title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css"> -->
 </head>
 
 <body>
@@ -102,7 +102,7 @@
             onclick="pdf()">ডাউনলোড</button>
     </div>
     <div id="root">
-        <header><a href="./../"><img src="./../media/logo.png" alt="Logo"></a>
+        <!-- <header><a href="./../"><img src="./../media/logo.png" alt="Logo"></a> -->
             <h1><?php echo $site_title; ?></h1>
             <h3><?php echo $result_titile . ' - ' . $year . ' (' . $training_name . ')'; ?></h3>
         </header>
@@ -187,7 +187,7 @@
         }).save()
     }
     </script>
-    <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small>
+    <!-- <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small> -->
 </body>
 
 </html>

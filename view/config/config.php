@@ -57,8 +57,6 @@ class GetResult extends Database{
           ON  `exam`.`exam_code` = `$results_table_name`.`exam_code`
         INNER JOIN `class`
           ON `class`.`id` = `exam`.`class_id`
-        INNER JOIN `subject`
-          ON `subject`.`class_id` = `class`.`id`
 
         WHERE `$results_table_name`.`roll` = $roll 
         AND `$results_table_name`.`exam_code` = $exam_code
