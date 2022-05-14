@@ -1,86 +1,157 @@
 <?php
 
 
+//   $servername = "hisbul.com";
+//   $username = "hisbulm_hisbulm_results_manger";
+//   $password = "#HisbulDBMager_R";
+//   $dbname = "hisbulm_results";
+
+//     // Create connection
+//     $conn = new mysqli($servername, $username, $password, $dbname);
+
+//     // Check connection
+//     if ($conn->connect_error) {
+
+//         die("DB Connection failed: " . $conn->connect_error);
+
+//     }
+// function sub(){
+  
+//   Global $conn;
+
+//   $sql = "SELECT * FROM `subject` where subject.class_id=1";
+
+//   $result = $conn->query($sql);
+  
+//   if ($result->num_rows > 0) {
+//     // output data of each row
+//     while($row = $result->fetch_assoc()) {
+//       return $data = $row["sl"];
+//     }
+//   } else {
+//     echo "0 results";
+//   }
+//   $conn->close();
+// }
+// echo sub();
+
+
+
+
+
+
+
 // Get Databse Information and Get Exam Data
 class GetResult extends Database{
 
 
-
-  public function view($year, $exam_code, $roll){
-      
+  // Get Count of How Many Subjects are available in this classs
+  public function total_subjects($year, $exam_code, $roll){
 
     $results_table_name = 'results_' . $year; // Example: results_222
-      
-    $results_from_sub_code = '`' . $results_table_name . '`.`' . 101 . '`';
-    for($i=101; $i < 121; $i++){
-      $results_from_sub_code .= ',`' . $results_table_name . '`.`' . $i . '`';
+    
+    $sql = 
+      "SELECT `class`.`total_subject`
+        FROM `$results_table_name` 
+        
+        INNER JOIN `exam` 
+          ON  `exam`.`exam_code` = `$results_table_name`.`exam_code`
+        INNER JOIN `class`
+          ON `class`.`id` = `exam`.`class_id`
+        
+        WHERE `$results_table_name`.`roll` = $roll 
+        AND `$results_table_name`.`exam_code` = $exam_code
+      ";
 
+    $stmt = $this->connect()->query($sql);
+    return $stmt->fetch_assoc()['total_subject'];
+  }
+
+
+  // Main Results View
+  public function result_data($year, $exam_code, $roll){
+    
+    $results_table_name = 'results_' . $year; // Example: results_222
+
+    // column name loop for subject code then included to sql query
+    $results_from_sub_code = '`' . $results_table_name . '`.`' . 101 . '`';
+    for($i=101; $i <= 100+$this->total_subjects($year, $exam_code, $roll); $i++){
+      $results_from_sub_code .= ',`' . $results_table_name . '`.`' . $i . '`';
     }
 
     
-
-      
-    $sql = 
+    $sql_results = 
       " SELECT 
           `exam`.`year`,
           `exam`.`exam_code`, 
-
+          `exam`.`exam_name`, 
+          `exam`.`class_id`, 
           `class`.`class_name`,
+          `class`.`branch_name`,
           `class`.`total_subject`,
-          
           `$results_table_name`.`roll`, 
           `$results_table_name`.`name`,
-
           $results_from_sub_code
-
         FROM `$results_table_name` 
 
         INNER JOIN `exam` 
           ON  `exam`.`exam_code` = `$results_table_name`.`exam_code`
-
         INNER JOIN `class`
           ON `class`.`id` = `exam`.`class_id`
-
         INNER JOIN `subject`
           ON `subject`.`class_id` = `class`.`id`
 
         WHERE `$results_table_name`.`roll` = $roll 
-        AND `exam`.`exam_code` = $exam_code
+        AND `$results_table_name`.`exam_code` = $exam_code
       ";
 
-      $result = $this->connect()->query($sql);
 
-      if($result->num_rows > 0){
-          while($rows = $result->fetch_assoc()){
-              
-              $data = $rows;
-          }
+    $stmt_results = $this->connect()->query($sql_results);
 
-          return $data;
-          echo 'hell';
-      }
+    $data = array();
 
-  }
-}
-
-
-
-// Get Result
-function result_data($col_name){
-  global $conn, $roll, $year, $month, $training_id;
-
-  $result_id = 'results_'.$year;
-
-  $sql = "SELECT * FROM $result_id WHERE `roll` = $roll AND `month` = $month AND `training_id` = $training_id";
-  $result = $conn->query($sql);
-
-
-  if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      return $row[$col_name];
+    if($stmt_results->num_rows > 0){
+      $data += $stmt_results->fetch_assoc();
+    }else{
+      $data = 'Error';
     }
-  } else {
 
-    return 'N/A';
-  }
-}
+    return $data;
+  } // result_data()
+
+
+
+  // Result
+  public function result($year, $exam_code, $roll){
+
+    $result = $this->result_data($year, $exam_code, $roll);
+
+    $class_id = $result['class_id'];
+
+    $sql_subjects = 
+      " SELECT 
+          `subject_id`,
+          `subject_name`,
+          `pass_marks`,
+          `total_marks`
+        FROM `subject`
+        WHERE `class_id`=$class_id
+      ";
+
+
+    $stmt_results = $this->connect()->query($sql_subjects);
+    $result += array(''=>$stmt_results->num_rows);
+
+    while ($data = $stmt_results->fetch_assoc()){
+      $result += array('sub_'.$data['subject_id']=>$data['subject_name']);
+      $result += array('sub_'.$data['subject_id'].'_total'=>$data['total_marks']);
+      $result += array('sub_'.$data['subject_id'].'_pass'=>$data['pass_marks']);
+    }
+
+    
+    return $result;
+  } // result()
+  
+
+
+} // class GetResult

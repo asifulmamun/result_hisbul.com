@@ -15,13 +15,24 @@
     // Call Site Information from init.php
     $site_info = new Info();
 
+    // Getting Result
+    $sub_data = new GetResult();
+    $data = $sub_data->result($year, $exam_code, $roll);
+    
 
 
-    // Get Result
-    $result = new GetResult();
     echo '<pre>';
-    print_r($result->view($year, $exam_code, $roll));
+    print_r($data);
     echo '</pre>';
+
+
+
+
+
+
+
+
+
 
 
 /* For get result ('Column Name;)

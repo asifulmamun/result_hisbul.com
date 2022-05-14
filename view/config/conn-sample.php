@@ -3,20 +3,12 @@
 class Database{
 
   // Object
-  private $servername;
-  private $username;
-  private $password;
-  private $dbname;
-
-
+  public $servername = "localhost";
+  public $username = "asifulmamun";
+  public $password = "";
+  public $dbname = "febrms";
 
   protected function connect(){
-
-    $this->servername = "localhost";
-    $this->username = "asifulmamun";
-    $this->password = "";
-    $this->dbname = "febrms";
-
 
     $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
