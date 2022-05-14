@@ -1,46 +1,5 @@
 <?php
 
-
-//   $servername = "hisbul.com";
-//   $username = "hisbulm_hisbulm_results_manger";
-//   $password = "#HisbulDBMager_R";
-//   $dbname = "hisbulm_results";
-
-//     // Create connection
-//     $conn = new mysqli($servername, $username, $password, $dbname);
-
-//     // Check connection
-//     if ($conn->connect_error) {
-
-//         die("DB Connection failed: " . $conn->connect_error);
-
-//     }
-// function sub(){
-  
-//   Global $conn;
-
-//   $sql = "SELECT * FROM `subject` where subject.class_id=1";
-
-//   $result = $conn->query($sql);
-  
-//   if ($result->num_rows > 0) {
-//     // output data of each row
-//     while($row = $result->fetch_assoc()) {
-//       return $data = $row["sl"];
-//     }
-//   } else {
-//     echo "0 results";
-//   }
-//   $conn->close();
-// }
-// echo sub();
-
-
-
-
-
-
-
 // Get Databse Information and Get Exam Data
 class GetResult extends Database{
 
@@ -65,7 +24,7 @@ class GetResult extends Database{
 
     $stmt = $this->connect()->query($sql);
     return $stmt->fetch_assoc()['total_subject'];
-  }
+  } // total_subjects()
 
 
   // Main Results View
@@ -140,7 +99,7 @@ class GetResult extends Database{
 
 
     $stmt_results = $this->connect()->query($sql_subjects);
-    $result += array(''=>$stmt_results->num_rows);
+    $result += array('total_subjects'=>$stmt_results->num_rows);
 
     while ($data = $stmt_results->fetch_assoc()){
       $result += array('sub_'.$data['subject_id']=>$data['subject_name']);

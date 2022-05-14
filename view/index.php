@@ -4,6 +4,7 @@
     $year = $_GET['years'];
     $exam_code = $_GET['exam_name'];
     $roll = $_GET['roll'];
+    $class_id = $_GET['class_id'];
 
 
     // Required Files
