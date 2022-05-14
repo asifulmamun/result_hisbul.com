@@ -120,7 +120,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
                 )
             );
             
-            console.log(searched[0]['class_id']); // print class id
+            // console.log(searched[0]['class_id']); // print class id
             class_id.value = searched[0]['class_id'];
         }
 
