@@ -1,10 +1,11 @@
 <?php
 
     // Received by Get Method & Stored to variable
+    $class_id = $_GET['class_id'];
+    $total_subjects = $_GET['total_subjects'];
     $year = $_GET['years'];
     $exam_code = $_GET['exam_name'];
     $roll = $_GET['roll'];
-    $class_id = $_GET['class_id'];
 
 
     // Required Files
@@ -18,7 +19,7 @@
 
     // Getting Result
     $sub_data = new GetResult();
-    $data = $sub_data->result($year, $exam_code, $roll);
+    $data = $sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll);
     
 
 
