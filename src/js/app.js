@@ -21,6 +21,7 @@ var getJSON = function (url, callback) {
     xhr.send();
 };
 
+// Exam Details
 getJSON('./uploads/data/exams.json', function (err, data) {
 
     // If json data found
@@ -104,7 +105,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
         option_roll.addEventListener('input', change_class_id);
         option_exam.addEventListener('input', change_class_id);
 
-        function change_class_id(){
+        function change_class_id() {
             let option_exam = document.getElementById('exam_name');
             let class_id = document.getElementById('class_id');
 
@@ -114,14 +115,42 @@ getJSON('./uploads/data/exams.json', function (err, data) {
             }];
 
             // Searching
-            let searched = data.filter(
+            let searched_class_id = data.filter(
                 f => searchItem.some(
                     s => f['exam_code'] == s['exam_code']
                 )
             );
-            
+
             // console.log(searched[0]['class_id']); // print class id
-            class_id.value = searched[0]['class_id'];
+            class_id.value = searched_class_id[0]['class_id'];
+
+
+
+            // Subjects Details
+            getJSON('./uploads/data/subjects.json', function (err, get_subjects) {
+                // If json data found
+                if (err != null) {
+                    console.error(err);
+                } else {
+
+                    // Search Item
+                    let searchItem = [{
+                        "class_id": searched_class_id[0]['class_id']
+                    }];
+
+                    // Searching
+                    let subjects = get_subjects.filter(
+                        f => searchItem.some(
+                            s => f['class_id'] == s['class_id']
+                        )
+                    );
+                    
+                    let subjects_lenght = document.getElementById('total_subjects');
+                    subjects_lenght.value = subjects.length
+                    console.log(subjects_lenght.value);
+
+                }
+            });
         }
 
 
@@ -172,3 +201,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
 
     } // If json data found
 });
+
+
+
+

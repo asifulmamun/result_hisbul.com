@@ -25,7 +25,8 @@ var getJSON = function getJSON(url, callback) {
   };
 
   xhr.send();
-};
+}; // Exam Details
+
 
 getJSON('./uploads/data/exams.json', function (err, data) {
   // If json data found
@@ -77,14 +78,34 @@ getJSON('./uploads/data/exams.json', function (err, data) {
         "exam_code": option_exam.value
       }]; // Searching
 
-      var searched = data.filter(function (f) {
+      var searched_class_id = data.filter(function (f) {
         return searchItem.some(function (s) {
           return f['exam_code'] == s['exam_code'];
         });
-      });
-      console.log(searched[0]['class_id']); // print class id
+      }); // console.log(searched[0]['class_id']); // print class id
 
-      class_id.value = searched[0]['class_id'];
+      class_id.value = searched_class_id[0]['class_id']; // Subjects Details
+
+      getJSON('./uploads/data/subjects.json', function (err, get_subjects) {
+        // If json data found
+        if (err != null) {
+          console.error(err);
+        } else {
+          // Search Item
+          var _searchItem = [{
+            "class_id": searched_class_id[0]['class_id']
+          }]; // Searching
+
+          var subjects = get_subjects.filter(function (f) {
+            return _searchItem.some(function (s) {
+              return f['class_id'] == s['class_id'];
+            });
+          });
+          var subjects_lenght = document.getElementById('total_subjects');
+          subjects_lenght.value = subjects.length;
+          console.log(subjects_lenght.value);
+        }
+      });
     }; // Add Option to Form
 
 
