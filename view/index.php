@@ -44,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <title><?php echo $template_titile; ?></title>
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link rel="stylesheet" href="./dist/css/style.css">
 </head>
 
 <body>
@@ -64,8 +64,8 @@
                 <span>রোলঃ&nbsp;</span><span id="roll"></span>
             </p>
             <p class="result_info">
-                <span>শাখাঃ&nbsp;</span><span></span>
-                <span>সর্বমোটঃ&nbsp;</span></span>
+                <span>শাখাঃ&nbsp;</span><span id="branch_name"></span>
+                <span>সর্বমোটঃ&nbsp;</span id="total_number"></span>
             </p>
         </div>
         <div class="results">
@@ -76,15 +76,7 @@
                         <th><span>ফলাফল</span></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><span>101</span></td>
-                        <td><span class="ansi_font">00</span></td>
-                    </tr>
-                    <tr>
-                        <td><span>102</span></td>
-                        <td><span class="ansi_font">00</span></td>
-                    </tr>
+                <tbody id="tbody_result">
                 </tbody>
                 <tfoot>
                     <tr>
@@ -100,7 +92,8 @@
     <div class="bottom_help"><button onclick="window.print()">প্রিন্ট</button><a class="button" href="./../">আরো রেজাল্ট
             দেখুন</a></div>
     <div id="route3"></div>
-    <script src="./dist/js/htmlToPdf.js"></script>
+    <script src="./dist/js/app.js"></script>
+    <script src="./dist/lib/htmlToPdf.js"></script>
     <script type="text/javascript">
     function pdf() {
         var t = document.getElementById("root");
