@@ -1,7 +1,6 @@
 'use strict';
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-// const babel = require('gulp-babel'); // removed
 const minify = require("gulp-babel-minify");
 const { watch } = require('gulp');
 
