@@ -1,15 +1,21 @@
-document.getElementById('name').innerText = data.name;
-document.getElementById('roll').innerText = data.roll;
-document.getElementById('branch_name').innerText = data.branch_name;
+// Function for set value innerText to Specific Id
+function innerText_to_id(id_name, value_for_innerText){
+    document.getElementById(id_name).innerText = value_for_innerText;
+}
+// Set Value of Students Info
+innerText_to_id('name', data.name);
+innerText_to_id('roll', data.roll);
+innerText_to_id('branch_name', data.branch_name);
 
 
 // Set Results function call in loop
-for (let i = 101; i <= 10 + data['total_subject']; i++) {
-    set_result_table('sub_name_' + i, '', 'res_id_' + i, data[i]);
-
-    var total_number = data[i] + data[i];
+var total_number = 0; // total number init
+for (let i = 1; i <= data.total_subject; i++) {
+    set_result_table(`sub_name_${i+100}`, '', `res_id_${i+100}`, data[i+100]);
+    total_number = total_number + '+' + data[i+100]; // adding total number as concate
 }
-console.log(total_number);
+innerText_to_id('total_number', eval(total_number));
+
 
 // Set Result function
 function set_result_table(sub_name_id, sub_name, res_id, res_value) {
@@ -71,16 +77,12 @@ getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
                 s => f['class_id'] == s['class_id']
             )
         );
-        
+
         // Set subject name to table by call set_subject_name function
         for (let i = 1; i <= data['total_subject']; i++) {
-            set_subject_name(`sub_name_${i + 100}`, `${subjects[i - 1]['subject_name']}`);
+            innerText_to_id(`sub_name_${i + 100}`, `${subjects[i - 1]['subject_name']}`);
         }
-        
-        // Function set for subject name with specific id
-        function set_subject_name(sub_name_id, sub_name) {
-            document.getElementById(sub_name_id).innerText = sub_name;
-        }
+
     }
 });
 

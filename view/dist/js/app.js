@@ -1,15 +1,23 @@
 "use strict";
 
-document.getElementById('name').innerText = data.name;
-document.getElementById('roll').innerText = data.roll;
-document.getElementById('branch_name').innerText = data.branch_name; // Set Results function call in loop
+// Function for set value innerText to Specific Id
+function innerText_to_id(id_name, value_for_innerText) {
+  document.getElementById(id_name).innerText = value_for_innerText;
+} // Set Value of Students Info
 
-for (var i = 101; i <= 10 + data['total_subject']; i++) {
-  set_result_table('sub_name_' + i, '', 'res_id_' + i, data[i]);
-  var total_number = data[i] + data[i];
+
+innerText_to_id('name', data.name);
+innerText_to_id('roll', data.roll);
+innerText_to_id('branch_name', data.branch_name); // Set Results function call in loop
+
+var total_number = 0; // total number init
+
+for (var i = 1; i <= data.total_subject; i++) {
+  set_result_table("sub_name_".concat(i + 100), '', "res_id_".concat(i + 100), data[i + 100]);
+  total_number = total_number + '+' + data[i + 100]; // adding total number as concate
 }
 
-console.log(total_number); // Set Result function
+innerText_to_id('total_number', eval(total_number)); // Set Result function
 
 function set_result_table(sub_name_id, sub_name, res_id, res_value) {
   var tbody_result = document.getElementById('tbody_result');
@@ -52,11 +60,6 @@ getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
   if (err != null) {
     console.error(err);
   } else {
-    // Function set for subject name with specific id
-    var set_subject_name = function set_subject_name(sub_name_id, sub_name) {
-      document.getElementById(sub_name_id).innerText = sub_name;
-    };
-
     // Search Item
     var searchItem = [{
       "class_id": data['class_id']
@@ -69,7 +72,7 @@ getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
     }); // Set subject name to table by call set_subject_name function
 
     for (var _i = 1; _i <= data['total_subject']; _i++) {
-      set_subject_name("sub_name_".concat(_i + 100), "".concat(subjects[_i - 1]['subject_name']));
+      innerText_to_id("sub_name_".concat(_i + 100), "".concat(subjects[_i - 1]['subject_name']));
     }
   }
 });

@@ -81,7 +81,7 @@
                 <tfoot>
                     <tr>
                         <td><span>সর্বমোট</span></td>
-                        <td><span class="ansi_font"><?php echo 'Total'; ?></span></td>
+                        <td><span id="total_number"></span></td>
                     </tr>
                 </tfoot>
             </table>
