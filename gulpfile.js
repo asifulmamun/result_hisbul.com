@@ -1,7 +1,8 @@
 'use strict';
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const babel = require('gulp-babel');
+// const babel = require('gulp-babel'); // removed
+const minify = require("gulp-babel-minify");
 const { watch } = require('gulp');
 
 
@@ -57,8 +58,10 @@ exports.sass_view = gulpsass_view;
 // Babel JS - ~gulp js_view  /view
 function gulpjs_view() {
     return gulp.src(src_dir_js2)
-        .pipe(babel({
-            presets: ['@babel/env']
+        .pipe(minify({
+            mangle: {
+                keepClassName: true
+            }
         }))
         .pipe(gulp.dest(dest_dir_js2))
 };

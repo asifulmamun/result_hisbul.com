@@ -22,12 +22,7 @@
     $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
 
 ?>
-<script>
-    var data = <?php echo $data; ?>;
-
-    console.log(data);
-</script>
-
+<script>var data=<?php echo $data; ?>;// Stored result to data variable as array</script>
 <!DOCTYPE html>
 <html lang="en">
 
