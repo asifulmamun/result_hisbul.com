@@ -41,10 +41,10 @@
     class DatabaseInfo{
         
       // Database Information
-      private $servername = "localhost";
-      private $username = "asifulmamun";
-      private $password = "";
-      private $dbname = "febrms";
+      protected $servername = "localhost";
+      protected $username = "asifulmamun";
+      protected $password = "";
+      protected $dbname = "febrms";
  
     }
         
