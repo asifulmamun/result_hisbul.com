@@ -3,7 +3,7 @@
     header('Access-Controll-Allow-Origin: *');
     header('Content-Type: application/json');
 
-    require_once './../../init.php'; // DB Connection
+    require_once './../../init.php'; // Initial File for DB Information
     require_once './conn.php'; // DB Connection
 
 
