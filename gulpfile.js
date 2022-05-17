@@ -34,8 +34,10 @@ exports.sass = gulpsass;
 // Babel JS - ~gulp js  /.
 function gulpjs() {
     return gulp.src(src_dir_js)
-        .pipe(babel({
-            presets: ['@babel/env']
+        .pipe(minify({
+            mangle: {
+                keepClassName: true
+            }
         }))
         .pipe(gulp.dest(dest_dir_js))
 };

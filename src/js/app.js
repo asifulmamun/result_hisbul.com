@@ -168,7 +168,6 @@ getJSON('./uploads/data/exams.json', function (err, data) {
         }
 
 
-
         // Filtered Duplicates and output Unique Results from Array
         function getUnique(arr) {
 

@@ -1,17 +1,17 @@
 <?php
 
+    // Required Files
+    require_once './../init.php'; // DB
+    require_once './config/conn.php'; // DB
+    require_once './config/config.php'; // configuration
+
+
     // Received by Get Method & Stored to variable
     $class_id = $_GET['class_id'];
     $total_subjects = $_GET['total_subjects'];
     $year = $_GET['years'];
     $exam_code = $_GET['exam_name'];
     $roll = $_GET['roll'];
-
-
-    // Required Files
-    require_once './../init.php'; // DB
-    require_once './config/conn.php'; // DB
-    require_once './config/config.php'; // configuration
 
 
     // Call Site Information from init.php
@@ -22,7 +22,9 @@
     $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
 
 ?>
-<script>var data=<?php echo $data; ?>;// Stored result to data variable as array</script>
+<script>
+var data = <?php echo $data; ?>; // Stored result to data variable as array
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,18 +52,16 @@
     </div>
     <div id="root">
         <!-- <header><a href="./../"><img src="./../media/logo.png" alt="Logo"></a> -->
-            <h1><?php echo $site_info->site_title; ?></h1>
-            <h3><?php echo $site_info->title_tag; ?></h3>
+        <h1><?php echo $site_info->site_title; ?></h1>
+        <h3><?php echo $site_info->title_tag; ?></h3>
         </header>
-        <div class="info">
-            <p class="student_info">
-                <span>নামঃ&nbsp;</span><span id="name"></span>
-                <span>রোলঃ&nbsp;</span><span id="roll"></span>
-            </p>
-            <p class="result_info">
-                <span>শাখাঃ&nbsp;</span><span id="branch_name"></span>
-                <span>সর্বমোটঃ&nbsp;</span id="total_number"></span>
-            </p>
+        <div id="student_info">
+            <ul id="ul_student_info">
+                <li><span>নামঃ&nbsp;</span><span id="name"></span></li>
+                <li><span>রোলঃ&nbsp;</span><span id="roll"></span></li>
+                <li><span>শাখাঃ&nbsp;</span><span id="branch_name"></span></li>
+                <li><span>সর্বমোটঃ&nbsp;</span id="total_number"></span></li>
+            </ul>
         </div>
         <div class="results">
             <table class="result_table">

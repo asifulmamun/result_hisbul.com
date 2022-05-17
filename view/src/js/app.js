@@ -87,5 +87,8 @@ getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
 });
 
 
-
+let ul_student_info = document.getElementById('ul_student_info');
+let li_ul_student_info = document.createElement('li');
+li_ul_student_info.innerText = "hello";
+ul_student_info.appendChild(li_ul_student_info);
 
