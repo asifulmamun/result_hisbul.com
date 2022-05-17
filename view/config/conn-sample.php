@@ -9,7 +9,6 @@ class Database extends DatabaseInfo{
 //   private $dbname;
 
   protected function connect(){
-
 //     $this->servername = "localhost";
 //     $this->username = "asifulmamun";
 //     $this->password = "";
