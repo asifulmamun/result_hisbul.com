@@ -33,3 +33,20 @@
         
     
     }
+
+
+    /* 
+        ------ Database -------
+    */
+    class DatabaseInfo{
+        
+      // Database Information
+      private $servername = "localhost";
+      private $username = "asifulmamun";
+      private $password = "";
+      private $dbname = "febrms";
+ 
+    }
+        
+    
+    
