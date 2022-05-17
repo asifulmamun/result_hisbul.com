@@ -9,6 +9,6 @@ uploads/images/*.png
 uploads/images/*.gif
 uploads/images/*.jpeg
 
-
+error_log*/
 .map
 init.php
