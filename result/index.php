@@ -1,7 +1,7 @@
 <?php
 
     // Home Page
-    require_once './init.php';
+    require_once './../init.php';
 
 
     // Call Site Information from init.php

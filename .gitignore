@@ -1,12 +1,12 @@
-node_modules
-package-lock.json
+result/node_modules
+result/package-lock.json
 
 # This file generate from ./result/config/exam_json_generate.php which data collected from DB exam table, generated static file for fast load exam
-uploads/data/*.json
-uploads/images/*.jpg
-uploads/images/*.png
-uploads/images/*.gif
-uploads/images/*.jpeg
+result/uploads/data/*.json
+result/uploads/images/*.jpg
+result/uploads/images/*.png
+result/uploads/images/*.gif
+result/uploads/images/*.jpeg
 
 error_log*/
 .map

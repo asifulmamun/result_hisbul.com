@@ -1,7 +1,7 @@
 <?php
 
     // Required Files
-    require_once './../init.php'; // DB
+    require_once './../../init.php'; // DB
     require_once './config/conn.php'; // DB
     require_once './config/config.php'; // configuration
 
