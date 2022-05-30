@@ -15,7 +15,7 @@
     class Link extends Dir{
         
         public $logo = './dist/img/logo.png';
-        public $favicon_icon = './dist/img/favicon.ico';
+        public $favicon_icon = './dist/img/favicon-16x16.png';
     }
 
 
@@ -26,10 +26,10 @@
     class Info extends Link{
         
         // Head
-        public $title_tag = 'February Result Management System';
+        public $title_tag = 'February Education Management System';
         
         // Header
-        public $site_title = 'FEB-RMS';
+        public $site_title = 'FEB-EMS';
         
     
     }
