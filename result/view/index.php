@@ -16,6 +16,7 @@
 
     // Call Site Information from init.php
     $site_info = new Info();
+    $view_info = new ViewInfo();
 
     // Getting Result
     $sub_data = new GetResult();
@@ -39,30 +40,32 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $view_info->favicon_icon; ?>" type="image/x-icon">
     <title><?php echo $template_titile; ?></title>
     <link rel="stylesheet" href="./dist/css/style.css">
 </head>
 
 <body>
     <div id="notice"></div>
-    <div class="help">
-        <h2>রেজাল্ট ডাউনলোড করতে নিচের ডাউনলোড বাটনে ক্লিক করুন</h2><button id="download"
-            onclick="pdf()">ডাউনলোড</button>
-    </div>
+
     <div id="root">
-        <!-- <header><a href="./../"><img src="./../media/logo.png" alt="Logo"></a> -->
-        <h1><?php echo $site_info->site_title; ?></h1>
-        <h3><?php echo $site_info->title_tag; ?></h3>
+
+        <header>
+            <a href="./../../"><img src="<?php echo $view_info->logo; ?>"
+                    alt="<?php echo $site_info->site_title; ?> - Logo"></a>
+            <h1><?php echo $site_info->site_title; ?></h1>
+            <h3><?php echo $site_info->title_tag; ?></h3>
         </header>
+
         <div id="student_info">
             <ul id="ul_student_info">
-                <li><span>নামঃ&nbsp;</span><span id="name"></span></li>
+                <li class="name"><span>নামঃ&nbsp;</span><span id="name"></span></li>
                 <li><span>রোলঃ&nbsp;</span><span id="roll"></span></li>
                 <li><span>শাখাঃ&nbsp;</span><span id="branch_name"></span></li>
                 <li><span>সর্বমোটঃ&nbsp;</span id="total_number"></span></li>
             </ul>
         </div>
+
         <div class="results">
             <table class="result_table">
                 <thead>
@@ -81,14 +84,27 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
                 </tfoot>
             </table>
         </div>
-        <div id="route4"></div>
     </div>
 
-    <div class="bottom_help"><button onclick="window.print()">প্রিন্ট</button><a class="button" href="./../">আরো রেজাল্ট
-            দেখুন</a></div>
-    <div id="route3"></div>
+
+    <div class="bottom_help">
+        <button onclick="window.print()">প্রিন্ট</button>
+        <button onclick="history.back()">আরো রেজাল্ট
+            দেখুন</button>
+        </div>
+
+
+    <div class="help">
+        <button id="download" onclick="pdf()">Download</button>
+    </div>
+
+    <div id="developer"></div>
+
     <script src="./dist/js/app.js"></script>
     <script src="./dist/lib/htmlToPdf.js"></script>
+
+
+
     <script type="text/javascript">
     function pdf() {
         var t = document.getElementById("root");
@@ -106,8 +122,12 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
             }
         }).save()
     }
+
     </script>
-    <!-- <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small> -->
+
+
+
+    <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small>
 </body>
 
 </html>

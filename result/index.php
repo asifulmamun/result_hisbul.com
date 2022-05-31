@@ -26,7 +26,8 @@
         <div class="content_wrap">
             <div class="sidebar_left">
                 <aside>
-                    <header><a href="./"><img src="<?php echo $site_info->logo; ?>" alt="<?php echo $site_info->favicon_icon; ?>&nbsp;logo" width="" height=""></a>
+                    <header>
+                        <a href="./"><img src="<?php echo $site_info->logo; ?>" alt="<?php echo $site_info->site_title; ?> - logo" width="" height=""></a>
                         <h1><?php echo $site_info->site_title; ?></h1>
                     </header>
                     <nav>

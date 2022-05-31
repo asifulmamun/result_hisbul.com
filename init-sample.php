@@ -18,6 +18,14 @@
         public $favicon_icon = './dist/img/favicon-16x16.png';
     }
 
+    // Link for View Page
+    class ViewLink extends Dir{
+
+        public $logo = './../dist/img/logo.png';
+        public $favicon_icon = './../dist/img/favicon-16x16.png';
+    }
+    
+
 
 
     /* 

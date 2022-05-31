@@ -36,7 +36,7 @@
 		padding-top: 1.5rem;
 
 		h1{
-			padding-top: .5rem;
+			padding-top: 1.5rem;
 			font-size: 1.5rem;
 		}
 
@@ -44,32 +44,43 @@
 			padding-top: .5rem;
 			font-weight: normal;
 		}
+
+		img{
+			width: 150px;
+		}
 	}
 
-	// Information
-	.info{
-		padding: 1rem 2rem;
 
-		p.student_info{
-			span:nth-child(2){
-				margin-right: 5rem;
+	// Student Information
+	#student_info{
+
+		padding-top: 1.5rem;
+
+		ul{
+			display: grid;
+			grid-template-columns: auto auto auto auto;
+			padding-left: 3rem;
+			padding-right: 3rem;
+
+			li{
+				list-style: none;
+				padding-top: 1rem;
 			}
 		}
 
-		p.result_info{
-			padding-top: .625rem;
-
-			span:nth-child(2),span:nth-child(4){
-				margin-right: 2.5rem;
-			}
+		.name{
+			grid-column: 1 / span 2;
 		}
 	}
+
+
+
 
 	// result
 	.results{
 		table.result_table{
 			width: 80%;
-    		margin: 1rem auto;
+			margin: 3rem auto;
 			border-collapse: collapse;
 
 			
@@ -125,8 +136,8 @@
 			thead{
 				th{
 					td{
-						// text-align: center;
-						// padding-left: .125rem;
+						text-align: center;
+						padding-left: .125rem;
 					}
 				}
 			}
