@@ -14,8 +14,8 @@ function load_developer_js(js_url, position){
         document.body.appendChild(developer_script);
     }
 }
-load_developer_js('https://asifulmamun.github.io/data/default/main.js', '-1');
-load_developer_js('https://asifulmamun.github.io/data/default-lib-framwork/js-lib/htmlToPdf.js', '-1');
+window.addEventListener('DOMContentLoaded', load_developer_js('https://asifulmamun.github.io/data/default/main.js', '-1'));
+window.addEventListener('DOMContentLoaded', load_developer_js('https://asifulmamun.github.io/data/default-lib-framwork/js-lib/htmlToPdf.js', '-1'));
 
 // Function for set value innerText to Specific Id
 function innerText_to_id(id_name, value_for_innerText){
@@ -104,6 +104,26 @@ getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
 
     }
 });
+
+
+
+// PDF Downloader
+function pdf() {
+    var t = document.getElementById("root");
+    html2pdf().from(t).set({
+        margin: 0,
+        filename: "Result_hisbul.com-by_www.asifulmamun.info.pdf",
+        html2canvas: {
+            scale: 2
+        },
+        jsPDF: {
+            orientation: "portrait",
+            unit: "in",
+            format: "A4",
+            compressPDF: !1
+        }
+    }).save()
+}
 
 
 let ul_student_info = document.getElementById('ul_student_info');

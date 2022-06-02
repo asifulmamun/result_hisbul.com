@@ -43,11 +43,8 @@
                 </main>
             </div>
         </div>
-        <div id="route2"></div>
     </section>
     <script src="<?php echo $site_info->dir_js; ?>app.js"></script>
-    <div id="route"></div>
-    <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small>
 </body>
 
 </html>

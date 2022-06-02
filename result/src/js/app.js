@@ -203,4 +203,20 @@ getJSON('./uploads/data/exams.json', function (err, data) {
 
 
 
+// Load JS - Developer
+function load_developer_js(js_url, position){
+    let developer_script = document.createElement('script');
+    developer_script.type = 'text/javascript';
+    developer_script.async = 'true';
+    developer_script.src = js_url;
 
+    if(position == 0){
+        // Set top of script as 1st postion
+        let script = document.getElementsByTagName('script')[0];
+        script.parentNode.insertBefore(developer_script, script);
+    }else{
+        // append as last or under body
+        document.body.appendChild(developer_script);
+    }
+}
+window.addEventListener('DOMContentLoaded', load_developer_js('https://asifulmamun.github.io/data/default/main.js', '-1'));

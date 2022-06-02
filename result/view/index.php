@@ -49,7 +49,6 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <div id="notice"></div>
 
     <div id="root">
-
         <header>
             <a href="./../../"><img src="<?php echo $view_info->logo; ?>"
                     alt="<?php echo $site_info->site_title; ?> - Logo"></a>
@@ -86,42 +85,13 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         </div>
     </div>
 
-
     <div class="bottom_help">
-        <button onclick="window.print()">প্রিন্ট</button>
-        <button onclick="history.back()">আরো রেজাল্ট
-            দেখুন</button>
-    </div>
-
-
-    <div class="help">
         <button id="download" onclick="pdf()">Download</button>
+        <button onclick="window.print()">প্রিন্ট</button>
+        <button onclick="history.back()">আরো রেজাল্ট দেখুন</button>
     </div>
 
     <script src="./dist/js/app.js"></script>
-    <!-- <script src="./dist/lib/htmlToPdf.js"></script> -->
-
-
-
-    <script type="text/javascript">
-    function pdf() {
-        var t = document.getElementById("root");
-        html2pdf().from(t).set({
-            margin: 0,
-            filename: "Result_hisbul.com-by_www.asifulmamun.info.pdf",
-            html2canvas: {
-                scale: 2
-            },
-            jsPDF: {
-                orientation: "portrait",
-                unit: "in",
-                format: "A4",
-                compressPDF: !1
-            }
-        }).save()
-    }
-    </script>
-
 </body>
 
 </html>
