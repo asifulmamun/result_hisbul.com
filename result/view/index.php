@@ -59,9 +59,9 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         <div id="student_info">
             <ul id="ul_student_info">
                 <li class="name"><span>নামঃ&nbsp;</span><span id="name"></span></li>
-                <li><span>রোলঃ&nbsp;</span><span id="roll"></span></li>
-                <li><span>শাখাঃ&nbsp;</span><span id="branch_name"></span></li>
-                <li><span>সর্বমোটঃ&nbsp;</span id="total_number"></span></li>
+                <li class="roll"><span>রোলঃ&nbsp;</span><span id="roll"></span></li>
+                <li class="branch_name"><span>শাখাঃ&nbsp;</span><span id="branch_name"></span></li>
+                <li class="total_numbers"><span>সর্বমোটঃ&nbsp;</span><span id="total_numbers"></span></li>
             </ul>
         </div>
 
