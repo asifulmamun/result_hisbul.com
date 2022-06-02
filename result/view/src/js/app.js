@@ -143,8 +143,130 @@ function set_student_info_li(class_and_id, key, value) {
 }
 
 
+// Average
+var average_number = Math.floor(eval(total_number) / data.total_subject);
+
+
+// Function for return grade value
+function grade(average) {
+
+    // Set Grade Value
+    let g_0_to_4 = 'F4';
+    let g_5_to_9 = 'F9';
+
+    let g_10_to_14 = 'F14';
+    let g_15_to_19 = 'F19';
+
+    let g_20_to_24 = 'F24';
+    let g_25_to_29 = 'F29';
+
+    let g_30_to_32 = 'F32';
+    let g_33_to_39 = 'F39';
+
+    let g_40_to_44 = 'F44';
+    let g_45_to_49 = 'F49';
+
+    let g_50_to_54 = 'F54';
+    let g_55_to_59 = 'F59';
+
+    let g_60_to_64 = 'F64';
+    let g_65_to_69 = 'F69';
+
+    let g_70_to_74 = 'F74';
+    let g_75_to_79 = 'F79';
+
+    let g_80_to_84 = 'F84';
+    let g_85_to_89 = 'F89';
+
+    let g_90_to_94 = 'F94';
+    let g_95_to_100 = 'F100';
+
+    // g_0_to_4
+    if (0 <= average && average <= 4) {
+        return g_0_to_4;
+    }
+    // g_5_to_9
+    else if (5 <= average && average <= 9) {
+        return g_5_to_9;
+    }
+    // g_10_to_14
+    else if (10 <= average && average <= 14) {
+        return g_10_to_14;
+    }
+    // g_15_to_19
+    else if (15 <= average && average <= 19) {
+        return g_15_to_19;
+    }
+    // g_20_to_24
+    else if (20 <= average && average <= 24) {
+        return g_20_to_24;
+    }
+    // g_25_to_29
+    else if (25 <= average && average <= 29) {
+        return g_25_to_29;
+    }
+    // g_30_to_32
+    else if (30 <= average && average <= 32) {
+        return g_30_to_32;
+    }
+    // g_33_to_39
+    else if (33 <= average && average <= 39) {
+        return g_33_to_39;
+    }
+    // g_40_to_44
+    else if (40 <= average && average <= 44) {
+        return g_40_to_44;
+    }
+    // g_45_to_49
+    else if (45 <= average && average <= 49) {
+        return g_45_to_49;
+    }
+    // g_50_to_54
+    else if (50 <= average && average <= 54) {
+        return g_50_to_54;
+    }
+    // g_55_to_59
+    else if (55 <= average && average <= 59) {
+        return g_55_to_59;
+    }
+    // g_60_to_64
+    else if (60 <= average && average <= 64) {
+        return g_60_to_64;
+    }
+    // g_65_to_69
+    else if (64 <= average && average <= 69) {
+        return g_65_to_69;
+    }
+    // g_70_to_74
+    else if (70 <= average && average <= 74) {
+        return g_70_to_74;
+    }
+    // g_75_to_79
+    else if (75 <= average && average <= 79) {
+        return g_75_to_79;
+    }
+    // g_80_to_84
+    else if (80 <= average && average <= 84) {
+        return g_80_to_84;
+    }
+    // g_85_to_89
+    else if (85 <= average && average <= 89) {
+        return g_85_to_89;
+    }
+    // g_90_to_94
+    else if (90 <= average && average <= 94) {
+        return g_90_to_94;
+    }
+    // g_95_to_100
+    else if (95 <= average && average <= 100) {
+        return g_95_to_100;
+    }
+}
+
+
 // Set Average number to student info
-set_student_info_li('average', 'গড়ঃ ', Math.floor(eval(total_number) / data.total_subject));
+set_student_info_li('average', 'গড়ঃ ', average_number);
+set_student_info_li('grade', 'বিভাগঃ ', grade(average_number));
 
 
 

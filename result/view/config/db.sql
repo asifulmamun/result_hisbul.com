@@ -53,6 +53,13 @@ CREATE TABLE `class` (
 	PRIMARY KEY (`id`)
 );
 
+CREATE TABLE `meta_info` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`meta_key` varchar(255) NOT NULL UNIQUE,
+	`meta_value` varchar(255),
+	PRIMARY KEY (`id`)
+);
+
 ALTER TABLE `results_2022` ADD CONSTRAINT `results_2022_fk0` FOREIGN KEY (`exam_code`) REFERENCES `exam`(`exam_code`);
 
 ALTER TABLE `subject` ADD CONSTRAINT `subject_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
@@ -63,36 +70,3 @@ ALTER TABLE `exam` ADD CONSTRAINT `exam_fk0` FOREIGN KEY (`class_id`) REFERENCES
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- Drop ID
--- ALTER TABLE `results_2021`
---   DROP `id`;
-
-
--- check duplicate
-/* SELECT
-    roll, COUNT(roll)
-FROM 
-    takmil
-GROUP BY
-    roll
-HAVING 
-    COUNT(roll) > 1; */
