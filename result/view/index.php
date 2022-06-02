@@ -91,17 +91,15 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         <button onclick="window.print()">প্রিন্ট</button>
         <button onclick="history.back()">আরো রেজাল্ট
             দেখুন</button>
-        </div>
+    </div>
 
 
     <div class="help">
         <button id="download" onclick="pdf()">Download</button>
     </div>
 
-    <div id="developer"></div>
-
     <script src="./dist/js/app.js"></script>
-    <script src="./dist/lib/htmlToPdf.js"></script>
+    <!-- <script src="./dist/lib/htmlToPdf.js"></script> -->
 
 
 
@@ -122,12 +120,8 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
             }
         }).save()
     }
-
     </script>
 
-
-
-    <small>Result By: <a href="https://asifulmamun.info">www.asifulmamun.info</a></small>
 </body>
 
 </html>
