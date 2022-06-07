@@ -22,7 +22,7 @@ var getJSON = function (url, callback) {
 };
 
 // Exam Details
-getJSON('./uploads/data/exams.json', function (err, data) {
+getJSON('./../uploads/data/exams.json', function (err, data) {
 
     // If json data found
     if (err != null) {
@@ -127,7 +127,7 @@ getJSON('./uploads/data/exams.json', function (err, data) {
 
 
             // Subjects Details
-            getJSON('./uploads/data/subjects.json', function (err, get_subjects) {
+            getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
                 // If json data found
                 if (err != null) {
                     console.error(err);

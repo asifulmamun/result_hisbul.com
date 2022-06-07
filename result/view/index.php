@@ -1,9 +1,9 @@
 <?php
 
     // Required Files
-    require_once './../../init.php'; // DB
-    require_once './config/conn.php'; // DB
-    require_once './config/config.php'; // configuration
+    require_once './../../feb-config.php'; // config
+    require_once './../../feb-includes/conn.php'; // DB
+    require_once './../../feb-includes/result/view/control.php'; // Contlol/Lgic
 
 
     // Received by Get Method & Stored to variable

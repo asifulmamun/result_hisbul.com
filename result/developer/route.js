@@ -1,1 +1,0 @@
-aleart('Hello');

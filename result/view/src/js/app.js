@@ -99,7 +99,7 @@ var getJSON = function (url, callback) {
 
 
 // Subjects Details added by call Get json function
-getJSON('./../uploads/data/subjects.json', function (err, get_subjects) {
+getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
     // If json data found
     if (err != null) {
         console.error(err);
