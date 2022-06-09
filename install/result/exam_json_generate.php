@@ -39,7 +39,7 @@
             ';
     }else{
         echo '
-            !Oh sorry, Not Create json for Exam Information.
+            !.. Oh sorry, Not Create json for Exam Information.
         ';
     }
     
@@ -80,7 +80,7 @@
         ';
     }else{
         echo '
-            !Oh sorry, Not Create json for Subject Information.
+            !.. Oh sorry, Not Create json for Subject Information.
         ';
     }
 
@@ -91,7 +91,7 @@
 
         public function subject(){
 
-            $sql = "SELECT `meta_key`, `meta_value`, `comment` FROM `meta_info`";
+            $sql = "SELECT `meta_key`, `meta_value`, `comment` FROM `meta_info` WHERE `comment`='grade'";
 
             $result = $this->connect()->query($sql);
 
@@ -108,18 +108,18 @@
     }
     
     $grade_arr = new GetGrade();
-    print_r($grade_arr->subject());
+    // print_r($grade_arr->subject());
 
     // Generate Json file from Exam Data
-    // $fp_subjects = fopen('./../uploads/data/subjects.json', 'w');
-    // if($fp_subjects){
-    //     fwrite($fp_subjects, json_encode($subjects_arr->subject()));
-    //     fclose($fp_subjects);
-    //     echo '
-    //         Successfully created the json file for Subject Information.
-    //     ';
-    // }else{
-    //     echo '
-    //         !Oh sorry, Not Create json for Subject Information.
-    //     ';
-    // }
+    $fp_grade = fopen('./../uploads/data/grades.json', 'w');
+    if($fp_grade){
+        fwrite($fp_grade, json_encode($grade_arr->subject()));
+        fclose($fp_grade);
+        echo '
+            Successfully created the json file for Grade Information.
+        ';
+    }else{
+        echo '
+            !.. Oh sorry, Not Create json for Grade Information.
+        ';
+    }
