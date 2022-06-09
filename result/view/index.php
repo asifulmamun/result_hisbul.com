@@ -42,7 +42,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?php echo $view_info->favicon_icon; ?>" type="image/x-icon">
     <title><?php echo $template_titile; ?></title>
-    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="stylesheet" href="./../dist/css/view/style.css">
 </head>
 
 <body>
@@ -91,7 +91,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         <button onclick="history.back()">আরো রেজাল্ট দেখুন</button>
     </div>
 
-    <script src="./dist/js/app.js"></script>
+    <script src="./../dist/js/view/app.js"></script>
 </body>
 
 </html>
