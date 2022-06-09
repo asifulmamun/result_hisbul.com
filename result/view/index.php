@@ -16,8 +16,7 @@
 
     // Call Site Information from init.php
     $site_info = new Info();
-    $view_info = new ViewInfo();
-
+    
     // Getting Result
     $sub_data = new GetResult();
     $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
@@ -40,7 +39,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<?php echo $view_info->favicon_icon; ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $site_info->favicon_icon_view; ?>" type="image/x-icon">
     <title><?php echo $template_titile; ?></title>
     <link rel="stylesheet" href="./../dist/css/view/style.css">
 </head>
@@ -50,7 +49,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
 
     <div id="root">
         <header>
-            <a href="./../../"><img src="<?php echo $view_info->logo; ?>"
+            <a href="./../../"><img src="<?php echo $site_info->logo_view; ?>"
                     alt="<?php echo $site_info->site_title; ?> - Logo"></a>
             <h1><?php echo $site_info->site_title; ?></h1>
             <h3><?php echo $site_info->title_tag; ?></h3>
