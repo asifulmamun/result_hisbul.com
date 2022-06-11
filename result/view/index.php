@@ -2,10 +2,11 @@
 
     // Required Files
     $dir_root = './../../';
+    $site_info = json_decode(file_get_contents($dir_root . 'uploads/data/site_info.json'), true); // Site Information 
+    echo "<pre>"; print_r($site_info); echo "</pre>";
     require_once $dir_root . 'feb-config.php'; // config
     require_once $dir_root . 'feb-includes/conn.php'; // DB
     require_once $dir_root . 'feb-includes/result/view/control.php'; // Contlol/Lgic
-
 
     // Received by Get Method & Stored to variable
     $class_id = $_GET['class_id'];
@@ -14,9 +15,6 @@
     $exam_code = $_GET['exam_name'];
     $roll = $_GET['roll'];
 
-
-    // Call Site Information from init.php
-    $site_info = new Info();
     
     // Getting Result
     $sub_data = new GetResult();
@@ -40,9 +38,9 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<?php echo $site_info->favicon_icon_view; ?>" type="image/x-icon">
-    <title><?php echo $template_titile; ?></title>
-    <link rel="stylesheet" href="./../dist/css/view/style.css">
+    <link rel="shortcut icon" href="<?php echo $dir_root . $site_info[3]['meta_value']; ?>" type="image/x-icon">
+    <title><?php echo $site_info[0]['meta_value']; ?></title>
+    <link rel="stylesheet" href="<?php echo $dir_root ?>result/dist/css/view/style.css">
 </head>
 
 <body>
@@ -50,10 +48,9 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
 
     <div id="root">
         <header>
-            <a href="./../"><img src="<?php echo $site_info->logo_view; ?>"
-                    alt="<?php echo $site_info->site_title; ?> - Logo"></a>
-            <h1><?php echo $site_info->site_title; ?></h1>
-            <h3><?php echo $site_info->title_tag; ?></h3>
+            <a href="./../"><img src="<?php echo $dir_root . $site_info[2]['meta_value']; ?>"
+                    alt="<?php echo $site_info[1]['meta_value']; ?> - Logo"></a>
+            <h1><?php echo $site_info[1]['meta_value']; ?></h1>
         </header>
 
         <div id="student_info">
@@ -91,7 +88,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         <button onclick="history.back()">আরো রেজাল্ট দেখুন</button>
     </div>
 
-    <script src="./../dist/js/view/app.js"></script>
+    <script src="<?php echo $dir_root ?>result/dist/js/view/app.js"></script>
 </body>
 
 </html>

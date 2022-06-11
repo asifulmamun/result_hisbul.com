@@ -2,8 +2,7 @@
 
     // Home Page
     $dir_root = './../';
-    $site_info = json_decode(file_get_contents($dir_root . 'uploads/data/site_info.json'), true); // Site Information  
-    echo "<pre>"; print_r($site_info); echo "</pre>";
+    $site_info = json_decode(file_get_contents($dir_root . 'uploads/data/site_info.json'), true); // Site Information echo "<pre>"; print_r($site_info); echo "</pre>";
     require_once $dir_root . 'feb-config.php';
 
 
