@@ -28,7 +28,5 @@ INSERT INTO `meta_info` (`id`, `meta_key`, `meta_value`, `comment`)
 VALUES 
 (NULL, 'site_title_tag', 'FEB-EMS', 'site_info'), 
 (NULL, 'site_title', 'February Education Management System', 'site_info'), 
-(NULL, 'site_logo_result', './../assets/img/logo.png', 'site_info'), 
-(NULL, 'site_logo_view', './../../assets/img/logo.png', 'site_info'), 
-(NULL, 'favicon_icon_result', './../assets/img/favicon-16x16.png', 'site_info'), 
-(NULL, 'favicon_icon_view', './../../assets/img/favicon-16x16.png', 'site_info');
+(NULL, 'site_logo', 'assets/img/logo.png', 'site_info'), 
+(NULL, 'favicon_icon', 'assets/img/favicon-16x16.png', 'site_info');

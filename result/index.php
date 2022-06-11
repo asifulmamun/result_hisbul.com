@@ -1,11 +1,12 @@
 <?php
 
     // Home Page
-    require_once './../feb-config.php';
+    $dir_root = './../';
+    $site_info = json_decode(file_get_contents($dir_root . 'uploads/data/site_info.json'), true); // Site Information  
+    echo "<pre>"; print_r($site_info); echo "</pre>";
+    require_once $dir_root . 'feb-config.php';
 
 
-    // Call Site Information from init.php
-    $site_info = new Info();
     
 ?>
 <!DOCTYPE html>
@@ -15,8 +16,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<?php echo $site_info->favicon_icon_result; ?>" type="image/x-icon">
-    <title><?php echo $site_info->title_tag; ?></title>
+    <link rel="shortcut icon" href="<?php echo $dir_root . $site_info[2]['meta_value']; ?>" type="image/x-icon">
+    <title><?php echo $site_info[0]['meta_value']; ?></title>
     <link rel="stylesheet" href="./dist/css/this/style.css">
 </head>
 
@@ -27,8 +28,8 @@
             <div class="sidebar_left">
                 <aside>
                     <header>
-                        <a href="./"><img src="<?php echo $site_info->logo_result; ?>" alt="<?php echo $site_info->site_title; ?> - logo" width="" height=""></a>
-                        <h1><?php echo $site_info->site_title; ?></h1>
+                        <a href="./"><img src="<?php echo $dir_root . $site_info[2]['meta_value']; ?>" alt="<?php echo $site_info[1]['meta_value'];  ?> - logo" width="" height=""></a>
+                        <h1><?php echo $site_info[1]['meta_value']; ?></h1>
                     </header>
                     <nav>
                         <ul>
