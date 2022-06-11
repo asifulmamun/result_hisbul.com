@@ -56,7 +56,7 @@ CREATE TABLE `class` (
 CREATE TABLE `meta_info` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`meta_key` varchar(255) NOT NULL UNIQUE,
-	`meta_value` varchar(255),
+	`meta_value` longtext,
 	`comment` varchar(255),
 	PRIMARY KEY (`id`)
 );
