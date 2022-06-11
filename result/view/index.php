@@ -2,8 +2,7 @@
 
     // Required Files
     $dir_root = './../../';
-    $site_info = json_decode(file_get_contents($dir_root . 'uploads/data/site_info.json'), true); // Site Information 
-    echo "<pre>"; print_r($site_info); echo "</pre>";
+    $site_info = json_decode(file_get_contents($dir_root . 'uploads/data/site_info.json'), true); // Site Information echo "<pre>"; print_r($site_info); echo "</pre>";
     require_once $dir_root . 'feb-config.php'; // config
     require_once $dir_root . 'feb-includes/conn.php'; // DB
     require_once $dir_root . 'feb-includes/result/view/control.php'; // Contlol/Lgic
@@ -26,15 +25,12 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
 </script>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
     <?php
         // Charset
         header('Content-Type: text/html; charset=utf-8');
     ?>
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,17 +38,14 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <title><?php echo $site_info[0]['meta_value']; ?></title>
     <link rel="stylesheet" href="<?php echo $dir_root ?>result/dist/css/view/style.css">
 </head>
-
 <body>
     <div id="notice"></div>
-
     <div id="root">
         <header>
             <a href="./../"><img src="<?php echo $dir_root . $site_info[2]['meta_value']; ?>"
                     alt="<?php echo $site_info[1]['meta_value']; ?> - Logo"></a>
             <h1><?php echo $site_info[1]['meta_value']; ?></h1>
         </header>
-
         <div id="student_info">
             <ul id="ul_student_info">
                 <li class="name"><span>নামঃ&nbsp;</span><span id="name"></span></li>
@@ -61,7 +54,6 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
                 <li class="total_numbers"><span>সর্বমোটঃ&nbsp;</span><span id="total_numbers"></span></li>
             </ul>
         </div>
-
         <div class="results">
             <table class="result_table">
                 <thead>
@@ -81,16 +73,13 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
             </table>
         </div>
     </div>
-
     <div class="bottom_help">
         <button id="download" onclick="pdf()">Download</button>
         <button onclick="window.print()">প্রিন্ট</button>
         <button onclick="history.back()">আরো রেজাল্ট দেখুন</button>
     </div>
-
     <script src="<?php echo $dir_root ?>result/dist/js/view/app.js"></script>
 </body>
-
 </html>
 <!-- 
   =========== If Any Problem =======
