@@ -49,7 +49,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
 
     <div id="root">
         <header>
-            <a href="./../../"><img src="<?php echo $site_info->logo_view; ?>"
+            <a href="./../"><img src="<?php echo $site_info->logo_view; ?>"
                     alt="<?php echo $site_info->site_title; ?> - Logo"></a>
             <h1><?php echo $site_info->site_title; ?></h1>
             <h3><?php echo $site_info->title_tag; ?></h3>
