@@ -1,6 +1,6 @@
+-- Meta Data for grades
 INSERT INTO `meta_info` (`id`, `meta_key`, `meta_value`, `comment`)
 VALUES 
-
 (NULL, 'g_0_to_4', 'F', 'grade'), 
 (NULL, 'g_5_to_9', 'F', 'grade'), 
 (NULL, 'g_10_to_14', 'F', 'grade'), 
@@ -21,3 +21,14 @@ VALUES
 (NULL, 'g_85_to_89', 'A+', 'grade'), 
 (NULL, 'g_90_to_94', 'A+', 'grade'), 
 (NULL, 'g_95_to_100', 'A+', 'grade');
+
+
+-- Meta data for Site Information
+INSERT INTO `meta_info` (`id`, `meta_key`, `meta_value`, `comment`)
+VALUES 
+(NULL, 'site_title_tag', 'FEB-EMS', 'site_info'), 
+(NULL, 'site_title', 'February Education Management System', 'site_info'), 
+(NULL, 'site_logo_result', './../assets/img/logo.png', 'site_info'), 
+(NULL, 'site_logo_view', './../../assets/img/logo.png', 'site_info'), 
+(NULL, 'favicon_icon_result', './../assets/img/favicon-16x16.png', 'site_info'), 
+(NULL, 'favicon_icon_view', './../../assets/img/favicon-16x16.png', 'site_info');

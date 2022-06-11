@@ -15,9 +15,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="<?php echo $site_info->favicon_icon; ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $site_info->favicon_icon_result; ?>" type="image/x-icon">
     <title><?php echo $site_info->title_tag; ?></title>
-    <link rel="stylesheet" href="<?php echo $site_info->dir_css; ?>style.css">
+    <link rel="stylesheet" href="./dist/css/this/style.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             <div class="sidebar_left">
                 <aside>
                     <header>
-                        <a href="./"><img src="<?php echo $site_info->logo; ?>" alt="<?php echo $site_info->site_title; ?> - logo" width="" height=""></a>
+                        <a href="./"><img src="<?php echo $site_info->logo_result; ?>" alt="<?php echo $site_info->site_title; ?> - logo" width="" height=""></a>
                         <h1><?php echo $site_info->site_title; ?></h1>
                     </header>
                     <nav>
@@ -61,7 +61,7 @@
             </div>
         </div>
     </section>
-    <script src="<?php echo $site_info->dir_js; ?>app.js"></script>
+    <script src="./dist/js/this/app.js"></script>
 </body>
 
 </html>
