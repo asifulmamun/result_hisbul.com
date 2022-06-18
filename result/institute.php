@@ -32,8 +32,8 @@
                     </header>
                     <nav>
                         <ul>
-                            <li class="side_menu_li side_menu_li_1"><a class="side_menu_li_a_1" href="./">Result</a></li>
-                            <li class="side_menu_li side_menu_li_2"><a class="side_menu_li_a_2" href="./institute.php">Institute Wise</a></li>
+                            <li class="side_menu_li side_menu_li_2"><a class="side_menu_li_a_2" href="./">Result</a></li>
+                            <li class="side_menu_li side_menu_li_1"><a class="side_menu_li_a_1" href="./institute.php">Institute Wise</a></li>
                         </ul>
                     </nav>
                 </aside>
@@ -41,7 +41,7 @@
             <div class="content">
                 <main>
                     <h2>ফলাফল</h2>
-                    <form action="./view" method="GET">
+                    <form action="./view/institute.php" method="GET">
                         <p class="result_form">
                             <input id="class_id" type="hidden" name="class_id" value="0">
                             <input id="total_subjects" type="hidden" name="total_subjects" value="0">
