@@ -8,20 +8,29 @@
     require_once $dir_root . 'feb-includes/result/view/control.php'; // Contlol/Lgic
 
     // Received by Get Method & Stored to variable
-    $class_id = $_GET['class_id'];
+    // $class_id = $_GET['class_id'];
     $total_subjects = $_GET['total_subjects'];
     $year = $_GET['years'];
     $exam_code = $_GET['exam_name'];
-    $roll = $_GET['roll'];
+    // $roll = $_GET['roll'];
 
     
+    // column name loop for subject code then included to sql query
+    $results_from_sub_code = '`' . $results_table_name . '`.`' . 101 . '`';
+    for($i=101; $i <= 100+$total_subjects; $i++){
+      $results_from_sub_code .= ',`' . $results_table_name . '`.`' . $i . '`';
+    }
+    echo $results_from_sub_code;
     // Getting Result
     $sub_data = new GetResultInstitute();
-    $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
+    echo '<pre>';
+    print_r($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
+    echo '</pre>';
+    // $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
 
 ?>
 <script>
-var data = <?php echo $data; ?>; // Stored result to data variable as array
+//var data = <?php echo $data; ?>; // Stored result to data variable as array
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +46,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?php echo $dir_root . $site_info[3]['meta_value']; ?>" type="image/x-icon">
     <title><?php echo $site_info[0]['meta_value']; ?></title>
-    <link rel="stylesheet" href="<?php echo $dir_root ?>result/dist/css/view/style.css">
+    <link rel="stylesheet" href="<?php echo $dir_root ?>result/dist/css/view/institute.css">
 </head>
 
 <body>
@@ -55,6 +64,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         </section>
 
 </div>
+<script src="<?php echo $dir_root ?>result/dist/js/view/institute.js"></script>
 </body>
 
 </html>

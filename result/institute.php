@@ -51,10 +51,9 @@
                             </select>
 
                             <select id="exam_name" name="exam_name">
-                                <option value="1">Select Exam</option>
+                                <option value="0">Select Exam</option>
                             </select>
 
-                            <input id="roll" type="text" name="roll" placeholder="রোল নং ইংরেজিতে ...">
                             <button id="submit" type="submit">Submit</button>
                         </p>
                     </form>
@@ -62,7 +61,7 @@
             </div>
         </div>
     </section>
-    <script src="./dist/js/this/app.js"></script>
+    <script src="./dist/js/this/institute.js"></script>
 </body>
 
 </html>
