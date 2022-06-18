@@ -22,9 +22,12 @@ function innerText_to_id(id_name, value_for_innerText) {
     document.getElementById(id_name).innerText = value_for_innerText;
 }
 // Set Value of Students Info
+console.log(data); // data test console
 innerText_to_id('name', data.name);
 innerText_to_id('roll', data.roll);
 innerText_to_id('branch_name', data.branch_name);
+innerText_to_id('exam_name', data.exam_name);
+innerText_to_id('class_name', data.class_name);
 
 
 // PDF Downloader

@@ -45,11 +45,13 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
             <a href="./../"><img src="<?php echo $dir_root . $site_info[2]['meta_value']; ?>"
                     alt="<?php echo $site_info[1]['meta_value']; ?> - Logo"></a>
             <h1><?php echo $site_info[1]['meta_value']; ?></h1>
+            <h2 id="exam_name"></h2>
         </header>
         <div id="student_info">
             <ul id="ul_student_info">
                 <li class="name"><span>নামঃ&nbsp;</span><span id="name"></span></li>
                 <li class="roll"><span>রোলঃ&nbsp;</span><span id="roll"></span></li>
+                <li class="class_name"><span>শ্রেণীঃ&nbsp;</span><span id="class_name"></span></li>
                 <li class="branch_name"><span>শাখাঃ&nbsp;</span><span id="branch_name"></span></li>
                 <li class="total_numbers"><span>সর্বমোটঃ&nbsp;</span><span id="total_numbers"></span></li>
             </ul>

@@ -166,7 +166,16 @@
 @media sreen and (max-width:767px){
 	#root{
 		padding-left: 1rem;	
-		padding-bottom: 1rem;	
+		padding-bottom: 1rem;
+
+
+		// Student Information
+		#student_info{
+			ul{
+				display: grid;
+				grid-template-columns: auto auto;
+			}
+		}
 	}
 }
 
