@@ -53,7 +53,6 @@ I am just create for my pracice and it make for my class assignment for my Unive
     Paper size          : A4
     Main Content Area   : <duv id="root"> //this id is required !important.
 
-
   It has more than file
   but you need to just edit index.php form with your midification and coverpage.php with your modification but under the <div id="root"> you need to all edit for your pdf.
 
