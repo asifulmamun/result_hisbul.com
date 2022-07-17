@@ -59,7 +59,7 @@ class GetResult extends Database{
 class GetResultInstitute extends Database{
 
   // Main Results View
-  public function result($year, $exam_code, $class_id, $total_subjects, $roll){
+  public function result($year, $exam_code, $class_id, $total_subjects){
     
     $results_table_name = 'results_' . $year; // Example: results_222
 

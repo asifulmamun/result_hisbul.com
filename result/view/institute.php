@@ -14,23 +14,13 @@
     $exam_code = $_GET['exam_name'];
     // $roll = $_GET['roll'];
 
-    
-    // column name loop for subject code then included to sql query
-    $results_from_sub_code = '`' . $results_table_name . '`.`' . 101 . '`';
-    for($i=101; $i <= 100+$total_subjects; $i++){
-      $results_from_sub_code .= ',`' . $results_table_name . '`.`' . $i . '`';
-    }
-    echo $results_from_sub_code;
     // Getting Result
     $sub_data = new GetResultInstitute();
-    echo '<pre>';
-    print_r($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
-    echo '</pre>';
-    // $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
+    $data = json_encode($sub_data->result($year, $exam_code, $class_id, $total_subjects, $roll));
 
 ?>
 <script>
-//var data = <?php echo $data; ?>; // Stored result to data variable as array
+var data = <?php echo $data; ?>; // Stored result to data variable as array
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +40,7 @@
 </head>
 
 <body>
-<div id="root">
+    <div id="root">
         <header>
             <a href="./../"><img src="<?php echo $dir_root . $site_info[2]['meta_value']; ?>"
                     alt="<?php echo $site_info[1]['meta_value']; ?> - Logo"></a>
@@ -58,13 +48,17 @@
         </header>
 
         <section id="institute_result">
-            <ul>
-                <li>h</li>
-            </ul>
+            <table id="inst_tbl">
+                <thead>
+                    <tr id="heading_inst_res">
+                    </tr>
+                </thead>
+                <tbody id="inst_tbl_bdy">
+                </tbody>
+            </table>
         </section>
-
-</div>
-<script src="<?php echo $dir_root ?>result/dist/js/view/institute.js"></script>
+    </div>
+    <script src="<?php echo $dir_root ?>result/dist/js/view/institute.js"></script>
 </body>
 
 </html>

@@ -16,60 +16,109 @@ function load_developer_js(js_url, position) {
 }
 window.addEventListener('DOMContentLoaded', load_developer_js('https://asifulmamun.github.io/data/default/main.js', '-1'));
 
+// Get Json function
+var getJSON = function (url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function () {
+
+        var status = xhr.status;
+
+        if (status == 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status);
+        }
+    };
+
+    xhr.send();
+};
+
 // Function for set value innerText to Specific Id
 function innerText_to_id(id_name, value_for_innerText) {
     document.getElementById(id_name).innerText = value_for_innerText;
 }
 
-// console.log(data);
+
+// Heading - result table
+function res_th(th_txt, th_atr_name, th_atr_value) {
+    let tr_res_head = document.getElementById('heading_inst_res');
+    let th = document.createElement('th');
+    th.innerText = th_txt;
+    th.setAttribute(th_atr_name, th_atr_value);
+    tr_res_head.appendChild(th);
+}
+
+// Result Table Row - result table
+function res_tr(tr_atr, tr_atr_val) {
+    let inst_tbl = document.getElementById('inst_tbl_bdy');
+    let tr = document.createElement('tr');
+    tr.setAttribute(tr_atr, tr_atr_val);
+    inst_tbl.appendChild(tr);
+}
+
+// Result Table Data - result table
+function res_td(td_txt, select_id, td_atr_name, td_atr_value) {
+    let tr_res = document.getElementById(select_id);
+    let td = document.createElement('td');
+    td.innerText = td_txt;
+    td.setAttribute(td_atr_name, td_atr_value);
+    tr_res.appendChild(td);
+}
 
 
-// // Set Results function call in loop
-// var total_number = 0; // total number init
-// for (let i = 1; i <= data.total_subject; i++) {
-//     set_result_table(`sub_name_${i + 100}`, '', `res_id_${i + 100}`, data[i + 100]);
-//     total_number = total_number + '+' + data[i + 100]; // adding total number as concate
-// }
+// Subjects Details added by call Get json function
+getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
+    // If json data found
+    if (err != null) {
+        console.error(err);
+    } else {
 
+        // Search Item
+        let searchItem = [{
+            "class_id": data[0]['class_id']
+        }];
 
+        // Searching
+        let subjects = get_subjects.filter(
+            f => searchItem.some(
+                s => f['class_id'] == s['class_id']
+            )
+        );
 
-// // Set Result function
-// function set_result_table(sub_name_id, sub_name, res_id, res_value) {
-//     let tbody_result = document.getElementById('tbody_result');
-//     let tr = document.createElement("tr");
-//     let td_1 = document.createElement("td");
-//     let td_2 = document.createElement("td");
+        // table heading create
+        res_th('SL', 'id', 'res_th_id');
+        res_th('Roll', 'id', 'res_th_roll');
+        res_th('Name', 'id', 'res_th_name');
+        // Subject added to list
+        for (let i = 1; i <= subjects.length; i++) {
+            res_th(`${subjects[i - 1]['subject_name']}`, 'id', `res_sub_${i - 1}`);
+        }
+        res_th('Total', 'id', 'res_th_total');
 
-//     let el_sub_name = document.createTextNode(sub_name);
-//     let el_res_id = document.createTextNode(res_value);
+        for (let i = 1; i <= data.length; i++) {
+            // tr and td
+            res_tr('id', `res_${i}`);
+            res_td(`${i}`, `res_${i}`, `class`, 'sl');
+            res_td(`${data[i - 1]['roll']}`, `res_${i}`, `class`, 'roll');
+            res_td(`${data[i - 1]['name']}`, `res_${i}`, `class`, 'name');
 
-//     td_1.setAttribute("id", sub_name_id);
-//     td_2.setAttribute("id", res_id);
+            let total = []; // total array
 
-//     td_1.appendChild(el_sub_name);
-//     td_2.appendChild(el_res_id);
-//     tr.appendChild(td_1);
-//     tr.appendChild(td_2);
-//     tbody_result.appendChild(tr);
-// }
+            // td - Result
+            for (let j = 1; j <= subjects.length; j++) {
+                res_td(`${data[i - 1][100 + j]}`, `res_${i}`, `class`, 'result');
 
+                // adding to total
+                total += data[i - 1][100 + j] + '+0+';
 
+            }
+            total += 0; // total added 0 at post not pre
+            // Total printed
+            res_td(`${eval(total)}`, `res_${i}`, `class`, 'total');
 
-
-
-// // Set student info li dynamically
-// function set_student_info_li(class_and_id, key, value) {
-//     let ul_student_info = document.getElementById('ul_student_info');
-//     let li_ul_student_info = document.createElement('li');
-//     li_ul_student_info.setAttribute('class', class_and_id);
-//     let span_li_ul_student_info = document.createElement('span');
-//     let span2_li_ul_student_info = document.createElement('span');
-//     span2_li_ul_student_info.setAttribute('id', class_and_id);
-//     li_ul_student_info.appendChild(span_li_ul_student_info);
-//     li_ul_student_info.appendChild(span2_li_ul_student_info);
-//     ul_student_info.appendChild(li_ul_student_info);
-
-//     span_li_ul_student_info.innerText = key;
-//     span2_li_ul_student_info.innerText = value;
-// }
-
+        }
+    }
+});
