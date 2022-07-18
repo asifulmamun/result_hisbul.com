@@ -175,16 +175,16 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
         );
 
         // table heading create
-        res_th('SL', 'id', 'res_th_id');
-        res_th('Roll', 'id', 'res_th_roll');
-        res_th('Name', 'id', 'res_th_name');
+        res_th('ক্রঃনঃ', 'id', 'res_th_id');
+        res_th('রোল', 'id', 'res_th_roll');
+        res_th('নাম', 'id', 'res_th_name');
         // Subject added to list
         for (let i = 1; i <= subjects.length; i++) {
             res_th(`${subjects[i - 1]['subject_name']}`, 'id', `res_sub_${i - 1}`);
         }
-        res_th('Total', 'id', 'res_th_total');
-        res_th('Average', 'id', 'res_th_average');
-        res_th('Grade', 'id', 'res_th_average');
+        res_th('মোট', 'id', 'res_th_total');
+        res_th('গড়', 'id', 'res_th_average');
+        res_th('বিভাগ', 'id', 'res_th_average');
 
         for (let i = 1; i <= data.length; i++) {
             // tr and td
