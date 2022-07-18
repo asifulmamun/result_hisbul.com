@@ -189,15 +189,15 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
         for (let i = 1; i <= data.length; i++) {
             // tr and td
             res_tr('id', `res_${i}`);
-            res_td(`${i}`, `res_${i}`, `class`, 'sl');
-            res_td(`${data[i - 1]['roll']}`, `res_${i}`, `class`, 'roll');
+            res_td(`${i}`, `res_${i}`, `class`, 'sl digit');
+            res_td(`${data[i - 1]['roll']}`, `res_${i}`, `class`, 'roll digit');
             res_td(`${data[i - 1]['name']}`, `res_${i}`, `class`, 'name');
 
             let total = []; // total array
 
             // td - Result
             for (let j = 1; j <= subjects.length; j++) {
-                res_td(`${data[i - 1][100 + j]}`, `res_${i}`, `class`, 'result');
+                res_td(`${data[i - 1][100 + j]}`, `res_${i}`, `class`, 'result digit');
 
                 // adding to total
                 total += data[i - 1][100 + j] + '+0+';
@@ -205,8 +205,8 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
             }
             total += 0; // total added 0 at post not pre
             // Total printed
-            res_td(`${eval(total)}`, `res_${i}`, `class`, 'total');
-            res_td(`${Math.round(eval(total) / subjects.length)}`, `res_${i}`, `class`, 'average');
+            res_td(`${eval(total)}`, `res_${i}`, `class`, 'total digit');
+            res_td(`${Math.round(eval(total) / subjects.length)}`, `res_${i}`, `class`, 'average digit');
 
             // Set Grade to result td
             getJSON('./../../uploads/data/grades.json', function (err, get_grades) {
@@ -227,7 +227,7 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
                         )
                     );
                     res_td(`${grade[0].meta_value}`, `res_${i}`, `class`, 'grade');
-                    console.log(getGradeMetaKeyFromAverageNumber(Math.round(eval(total) / subjects.length)));
+                    // console.log(getGradeMetaKeyFromAverageNumber(Math.round(eval(total) / subjects.length)));
                     // console.log(average_number);
                 }
             });
