@@ -59,6 +59,10 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
             </table>
         </section>
     </div>
+    <div class="bottom_help">
+        <button onclick="window.print()">প্রিন্ট</button>
+        <button onclick="history.back()">আরো রেজাল্ট দেখুন</button>
+    </div>
     <script src="<?php echo $dir_root ?>result/dist/js/view/institute.js"></script>
 </body>
 
