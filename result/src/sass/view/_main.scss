@@ -1,6 +1,12 @@
 body{
 	font-family: 'Hind Siliguri', sans-serif;
 }
+
+// Set all digit bn Ansi SutonnyMJ
+.digit{
+	font-family: SutonnyMJ,  sans-serif;
+}
+
 // Notice
 .help{
 	display: flex;
@@ -85,7 +91,6 @@ body{
 			width: 80%;
 			margin: 3rem auto;
 			border-collapse: collapse;
-
 			
 			// head
 			thead{

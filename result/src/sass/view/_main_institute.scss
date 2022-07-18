@@ -1,6 +1,12 @@
 body{
 	font-family: 'Hind Siliguri', sans-serif;
 }
+
+// Set all digit bn Ansi SutonnyMJ
+.digit{
+	font-family: SutonnyMJ,  sans-serif;
+}
+
 /* Main A4 Size */
 #root{
 	// width: 792px;
@@ -69,10 +75,6 @@ body{
 
 			td.name{
 				text-align: left;
-			}
-
-			td.digit{
-				font-family: SutonnyMJ,  sans-serif;
 			}
 		}
 

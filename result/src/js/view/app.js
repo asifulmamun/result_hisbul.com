@@ -71,6 +71,7 @@ function set_result_table(sub_name_id, sub_name, res_id, res_value) {
 
     td_1.setAttribute("id", sub_name_id);
     td_2.setAttribute("id", res_id);
+    td_2.setAttribute("class", "digit");
 
     td_1.appendChild(el_sub_name);
     td_2.appendChild(el_res_id);
@@ -240,6 +241,7 @@ function getGradeMetaKeyFromAverageNumber(average) {
 
 // Set li into head of result as a list item
 set_student_info_li('average', 'গড়ঃ ', average_number);
+document.getElementById('average').setAttribute('class', 'digit');
 // Get Grade and Set li into head of result as a list item
 getJSON('./../../uploads/data/grades.json', function (err, get_grades) {
     // If json data found

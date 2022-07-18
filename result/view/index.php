@@ -50,10 +50,10 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
         <div id="student_info">
             <ul id="ul_student_info">
                 <li class="name"><span>নামঃ&nbsp;</span><span id="name"></span></li>
-                <li class="roll"><span>রোলঃ&nbsp;</span><span id="roll"></span></li>
+                <li class="roll digit"><span>রোলঃ&nbsp;</span><span id="roll" class="digit"></span></li>
                 <li class="class_name"><span>শ্রেণীঃ&nbsp;</span><span id="class_name"></span></li>
                 <li class="branch_name"><span>শাখাঃ&nbsp;</span><span id="branch_name"></span></li>
-                <li class="total_numbers"><span>সর্বমোটঃ&nbsp;</span><span id="total_numbers"></span></li>
+                <li class="total_numbers"><span>সর্বমোটঃ&nbsp;</span><span id="total_numbers" class="digit"></span></li>
             </ul>
         </div>
         <div class="results">
@@ -69,7 +69,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
                 <tfoot>
                     <tr>
                         <td><span>সর্বমোট</span></td>
-                        <td><span id="total_number"></span></td>
+                        <td><span id="total_number" class="digit"></span></td>
                     </tr>
                 </tfoot>
             </table>
