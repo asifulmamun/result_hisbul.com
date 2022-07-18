@@ -184,7 +184,7 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
         }
         res_th('Total', 'id', 'res_th_total');
         res_th('Average', 'id', 'res_th_average');
-        res_th('Grrade', 'id', 'res_th_average');
+        res_th('Grade', 'id', 'res_th_average');
 
         for (let i = 1; i <= data.length; i++) {
             // tr and td
