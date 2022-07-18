@@ -68,6 +68,92 @@ function res_td(td_txt, select_id, td_atr_name, td_atr_value) {
     tr_res.appendChild(td);
 }
 
+// Function for return grade value
+function getGradeMetaKeyFromAverageNumber(average) {
+
+
+    // g_0_to_4
+    if (0 <= average && average <= 4) {
+        return 'g_0_to_4';
+    }
+    // g_5_to_9
+    else if (5 <= average && average <= 9) {
+        return 'g_5_to_9';
+    }
+    // g_10_to_14
+    else if (10 <= average && average <= 14) {
+        return 'g_10_to_14';
+    }
+    // g_15_to_19
+    else if (15 <= average && average <= 19) {
+        return 'g_15_to_19';
+    }
+    // g_20_to_24
+    else if (20 <= average && average <= 24) {
+        return 'g_20_to_24';
+    }
+    // g_25_to_29
+    else if (25 <= average && average <= 29) {
+        return 'g_25_to_29';
+    }
+    // g_30_to_32
+    else if (30 <= average && average <= 32) {
+        return 'g_30_to_32';
+    }
+    // g_33_to_39
+    else if (33 <= average && average <= 39) {
+        return 'g_33_to_39';
+    }
+    // g_40_to_44
+    else if (40 <= average && average <= 44) {
+        return 'g_40_to_44';
+    }
+    // g_45_to_49
+    else if (45 <= average && average <= 49) {
+        return 'g_45_to_49';
+    }
+    // g_50_to_54
+    else if (50 <= average && average <= 54) {
+        return 'g_50_to_54';
+    }
+    // g_55_to_59
+    else if (55 <= average && average <= 59) {
+        return 'g_55_to_59';
+    }
+    // g_60_to_64
+    else if (60 <= average && average <= 64) {
+        return 'g_60_to_64';
+    }
+    // g_65_to_69
+    else if (64 <= average && average <= 69) {
+        return 'g_65_to_69';
+    }
+    // g_70_to_74
+    else if (70 <= average && average <= 74) {
+        return 'g_70_to_74';
+    }
+    // g_75_to_79
+    else if (75 <= average && average <= 79) {
+        return 'g_75_to_79';
+    }
+    // g_80_to_84
+    else if (80 <= average && average <= 84) {
+        return 'g_80_to_84';
+    }
+    // g_85_to_89
+    else if (85 <= average && average <= 89) {
+        return 'g_85_to_89';
+    }
+    // g_90_to_94
+    else if (90 <= average && average <= 94) {
+        return 'g_90_to_94';
+    }
+    // g_95_to_100
+    else if (95 <= average && average <= 100) {
+        return g_95_to_100;
+    }
+}
+
 
 // Result Added with subjects
 getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
@@ -97,6 +183,8 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
             res_th(`${subjects[i - 1]['subject_name']}`, 'id', `res_sub_${i - 1}`);
         }
         res_th('Total', 'id', 'res_th_total');
+        res_th('Average', 'id', 'res_th_average');
+        res_th('Grrade', 'id', 'res_th_average');
 
         for (let i = 1; i <= data.length; i++) {
             // tr and td
@@ -118,7 +206,31 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
             total += 0; // total added 0 at post not pre
             // Total printed
             res_td(`${eval(total)}`, `res_${i}`, `class`, 'total');
+            res_td(`${Math.round(eval(total) / subjects.length)}`, `res_${i}`, `class`, 'average');
 
+            // Set Grade to result td
+            getJSON('./../../uploads/data/grades.json', function (err, get_grades) {
+                // If json data found
+                if (err != null) {
+                    console.error(err);
+                } else {
+
+                    // Search Item
+                    let searchItem = [{
+                        "meta_key": getGradeMetaKeyFromAverageNumber(Math.round(eval(total) / subjects.length))
+                    }];
+
+                    // Searching
+                    let grade = get_grades.filter(
+                        f => searchItem.some(
+                            s => f['meta_key'] == s['meta_key']
+                        )
+                    );
+                    res_td(`${grade[0].meta_value}`, `res_${i}`, `class`, 'grade');
+                    console.log(getGradeMetaKeyFromAverageNumber(Math.round(eval(total) / subjects.length)));
+                    // console.log(average_number);
+                }
+            });
         }
     }
 });

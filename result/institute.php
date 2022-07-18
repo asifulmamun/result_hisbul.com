@@ -33,7 +33,7 @@
                     <nav>
                         <ul>
                             <li class="side_menu_li side_menu_li_2"><a class="side_menu_li_a_2" href="./">Result</a></li>
-                            <li class="side_menu_li side_menu_li_1"><a class="side_menu_li_a_1" href="./institute.php">Institute Wise</a></li>
+                            <li class="side_menu_li side_menu_li_1"><a class="side_menu_li_a_1" href="./institute.php">Class Wise</a></li>
                         </ul>
                     </nav>
                 </aside>

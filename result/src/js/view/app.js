@@ -147,7 +147,7 @@ function set_student_info_li(class_and_id, key, value) {
 
 
 // Average
-var average_number = Math.floor(eval(total_number) / data.total_subject);
+var average_number = Math.round(eval(total_number) / data.total_subject);
 
 
 // Function for return grade value
