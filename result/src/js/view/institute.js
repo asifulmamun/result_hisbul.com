@@ -69,7 +69,7 @@ function res_td(td_txt, select_id, td_atr_name, td_atr_value) {
 }
 
 
-// Subjects Details added by call Get json function
+// Result Added with subjects
 getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
     // If json data found
     if (err != null) {
@@ -122,3 +122,6 @@ getJSON('./../../uploads/data/subjects.json', function (err, get_subjects) {
         }
     }
 });
+
+// Set exam name
+innerText_to_id('exam_name', data[0]['exam_name']);

@@ -29,4 +29,4 @@ VALUES
 (NULL, 'site_title_tag', 'FEB-EMS', 'site_info'), 
 (NULL, 'site_title', 'February Education Management System', 'site_info'), 
 (NULL, 'site_logo', 'assets/img/logo.png', 'site_info'), 
-(NULL, 'favicon_icon', 'assets/img/favicon-16x16.png', 'site_info');
+(NULL, 'favicon_icon', 'assets/img/favicon.ico', 'site_info');

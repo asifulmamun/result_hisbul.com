@@ -4,7 +4,7 @@
 	width: 100%;
 	// height: 1120px;
 	font-size: 16px;
-	overflow: hidden;
+	overflow-y: scroll;
 	margin: 0 auto;
 	position: relative;
 
@@ -18,10 +18,10 @@
 			font-size: 1.5rem;
 		}
 
-		// h3{
-		// 	padding-top: .5rem;
-		// 	font-weight: normal;
-		// }
+		h2{
+			padding-top: 1.5rem;
+			font-weight: normal;
+		}
 
 		img{
 			width: 150px;
@@ -29,16 +29,44 @@
 	}
 
 	#institute_result{
-		
-		// table heading
-		#heading_inst_res{
+		display: flex;
+		justify-content: center;
+		padding-top: .3rem;
+
+		table#inst_tbl{
+
+			border-collapse: collapse;
+
+			// table heading
+			thead{
+				background-color: rgb(235, 231, 231);
+
+				tr#heading_inst_res{
+					th{
+						border: 1px solid rgb(85, 79, 79);
+					}
+				}
+			}
 			
-		}
-		
-		// table data
-		#inst_res{
+			// table data
+			tbody#inst_tbl_bdy{
+				tr{
+					td{
+						border: 1px solid rgb(85, 79, 79);
+					}
+				}
+
+			}
 			
+			
+			th,td{
+				padding: .3rem .5rem;
+				text-align: center;
+			}
 		}
+
+		
+
 
 	}
 

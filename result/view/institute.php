@@ -45,6 +45,7 @@ var data = <?php echo $data; ?>; // Stored result to data variable as array
             <a href="./../"><img src="<?php echo $dir_root . $site_info[2]['meta_value']; ?>"
                     alt="<?php echo $site_info[1]['meta_value']; ?> - Logo"></a>
             <h1><?php echo $site_info[1]['meta_value']; ?></h1>
+            <h2 id="exam_name"></h2>
         </header>
 
         <section id="institute_result">
